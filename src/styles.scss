@@ -1,1 +1,292 @@
 /* You can add global styles to this file, and also import other style files */
+/* CSS Reset */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Scrollbar*/
+::-webkit-scrollbar {
+    width: 4px; /* Set the width of the scrollbar */
+    height: 10px; /* Set the height of the scrollbar */
+    // scrollbar-gutter: stable;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Set the border radius of the scrollbar thumb */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Set the color of the scrollbar track */
+  }
+
+.btn-primary{
+    border: 1px solid #121212;
+    color: #fff;
+    padding: 10px;
+    font-weight: 700;
+    &:hover{
+        cursor: pointer;
+        background-color: #ae7aff;
+        color: #121212;
+    }
+}
+
+.btn-secondary{
+    border: 1px solid #121212;
+    background-color: #ae7aff;
+    padding: 10px;
+    color: #121212;
+    font-weight: 700;
+
+    &:hover{
+        // color: #fff;
+        // animation on hovering
+        cursor: pointer;
+    }
+}
+.img-upload-btn{
+    border: 1px solid #121212;
+    background-color: #efe4ff;
+    padding: 10px;
+    color: #ae7aff;
+    font-weight: 700;
+    width:130px;
+    &:hover{
+        color: #121212;
+        background-color: #ae7aff;
+        // animation on hovering
+        cursor: pointer;
+    }
+}
+.side-nav-btn-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    &:hover{
+        background: #ae7aff;
+        color: #121212;
+        cursor: pointer;
+    }
+
+    @media (max-width:880px) {
+        &.side-nav-btn-row{
+            width: 42px;
+            .nav-button{
+                display: none;
+            }
+        }
+    }
+    
+}
+.active{
+    background: #ae7aff;
+    color: #121212;
+}
+.no-items-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .no-items-icon{
+        width: 50px;
+        height: 50px;
+        background-color: #ae7aff;
+        border-radius: 50%;
+        line-height: 50px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+// logo styles
+.logo-section{
+    font-style: italic;
+    height: 44px;
+    width: 44px;
+    line-height: 44px;
+    border: 2px solid #ae7aff;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    cursor: pointer;
+    .logo span{
+        color: #ae7aff;
+        font-weight: 700;
+    }
+}
+
+// hide input field where type=file
+input[type="file"]{
+    visibility: hidden;
+}
+
+// side-bar font-awsome icon
+.side-bar-icons{
+    font-size: 20px;
+    // color: #ae7aff;
+}
+
+.secondary-text{
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+    font-size: 0.875rem;
+}
+
+.tertiary-text{
+    --tw-text-opacity: 1;
+    color: rgb(209 213 219 / var(--tw-text-opacity));
+    font-size: 0.875rem;
+}
+
+.hide-icon{
+    display: none;
+}
+
+.btn-d-primary{
+    background: #ae7aff;
+    color: #121212;
+}
+
+.btn-d-secondary{
+    background: #fff;
+    color: #121212;
+}
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.shadow-btn-container{
+    button{
+            box-shadow: 4px 4px #4f4e4e;
+            outline: none;
+        }
+    button:active{
+            box-shadow: 1px 1px #4f4e4e;
+            transform: translate(4px, 4px);
+        }
+}
+
+.cancel-btn{
+    outline: none;
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    background-color: #121212;
+    color: #fff;
+    cursor: pointer;
+}
+
+.finish-btn{
+    outline: none;
+    padding: 12px 16px;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    border: 1px solid #121212;
+    background-color: #ae7aff;
+    cursor: pointer;
+}
+.finish-btn-disable{
+    background-color: #e4d3ff;
+    cursor: pointer;
+}
+
+.delete-btn{
+    outline: none;
+    padding: 12px 16px;
+    width: 100%;
+    border: 1px solid #121212;
+    background-color: rgb(185, 28, 28);
+    cursor: pointer;
+    color: #fff;
+}
+
+.flex-row-align{
+    display: flex;
+    flex-direction: row;
+}
+
+// Dialog
+.upload-dialog-modal{
+    border: 1px solid #e5e7eb;
+    width: 60%;
+    height: auto;
+}
+
+.upload-status-dialog-modal{
+    border: 1px solid rgb(55, 65, 81);
+    width: 40%;
+    height: auto;
+}
+
+.delete-video-dialog-modal{
+    border: 1px solid rgb(55, 65, 81);
+    width: 30%;
+    height: auto;
+}
+
+// mat-snack bar
+.snackbar-message-box{
+    .mdc-snackbar__surface {
+        background-color: #ae7aff !important;
+      }
+    
+    .mdc-snackbar__label {
+        color: #121212 !important;
+      }
+}
+
+// headings
+.text-xl{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+// icons
+.close-icon{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+// fonts
+.secondary-fonts{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.fw-3{
+    font-weight: 300;
+}
+
+
+// mat-manu
+.auth-menu{
+    background-color: #ae7aff !important;
+    border: 1px solid #121212;
+    // this class helps in removing padding from mat-menu container
+    .mat-mdc-menu-content{
+        padding: 0 !important;
+    }
+    button span{
+        color: #121212;
+        font-weight: 700 !important;
+        font-family: 'Times New Roman' !important;
+    }
+    button:hover{
+        background-color: #fff !important;
+    }
+}
+

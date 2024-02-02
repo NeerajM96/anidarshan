@@ -1,0 +1,113 @@
+.channel-container{
+    box-sizing: border-box;
+    background-color: #121212;
+    // margin-right: 4px;
+    // height: 100%;
+    height: calc(100vh - 68px);
+    overflow-y: auto;
+    // scrollbar-gutter: stable;
+    .channel-header{
+        display: flex;
+        flex-direction: column;
+        .cover-image-container{
+            .cover-image{
+                display: block;
+                background: no-repeat center center/cover;
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+        .channel-details-conatiner{
+            display: flex;
+            justify-content: space-between;
+            
+            .channel-details-row{
+                display: flex;
+                flex-direction: row;
+                
+                .avatar{
+                    width:100px;
+                    height: 100px;
+                    // clip-path: circle();
+                    border: 2px solid #e5e7eb;;
+                    border-radius: 50%;
+                    transform: translate(28px, -28px);
+                    // object-fit: contain;
+                    object-fit: cover;
+                }
+                .channel-info{
+                    margin: 18px 0 0 48px;
+                    color: #fff;
+                    .channel-name{
+                        font-size: 1.25rem;
+                    }
+                }
+                .channel-username, .subscribers,.subscribed-to{
+                    --tw-text-opacity: 1;
+                    color: rgb(156 163 175 / var(--tw-text-opacity));
+                    font-size: 0.875rem;
+                }
+            }
+            .subscribe-btn-container{
+                margin-right: 16px;
+                padding-top: 24px;
+                button{
+                    box-shadow: 4px 4px #4f4e4e;
+                }
+                button:active{
+                    box-shadow: 1px 1px #4f4e4e;
+                    transform: translate(4px, 4px);
+                }
+            }
+        }
+    }
+
+
+    .channel-content{
+            position: sticky;
+            top:0px;
+            z-index: 1;
+            background: #121212;
+        .channel-nav-links{
+            border-bottom: 1px solid #e5e7eb;
+            margin: 0 10px;
+            ul{
+                list-style: none;
+                color: rgb(156 163 175);
+                display: grid;
+                grid-template-columns: repeat(4,auto);
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 0;
+                text-decoration: none;
+              }
+              
+              li a:hover {
+                background-color: #fff;
+                color: #ae7aff;
+                cursor: pointer;
+              }
+        }   
+    }
+
+    .channel-items{
+        // overflow-y: auto;
+    }
+    
+}
+// TODO: some bug is occurring when link is active and on hover the text color property is behaving differently
+.my-channel-li-active{
+    background-color: #ae7aff;
+    color: #121212;
+}
+
+.upload-video-btn{
+    position: fixed;
+    top:50%;
+    right: 20px;
+    z-index: 4;
+}

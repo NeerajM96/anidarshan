@@ -1,0 +1,5 @@
+<div class="videos-container">
+  <span *ngFor="let data of videoData">
+    <app-video-card [data]="data" [onMyChannelPage]="toMyChannelPage"></app-video-card>
+  </span>
+</div>

@@ -1,0 +1,58 @@
+<div class="upload-video-dialog">
+    <div class="upload-header">
+        <span id="header-title">
+            Upload Videos
+        </span>
+        <span class="shadow-btn-container">
+            <button class="subscribe btn-secondary" (click)="onSave()">Save</button>
+        </span>
+    </div>
+    <div class="upload-container-body">
+            <form style="display: block;" [formGroup]="uploadForm">
+                  <div class="upload-container">
+                        <span class="upload-icon">
+                            <i class="fa fa-upload"></i>
+                        </span>
+                        <span>Drag and drop to upload files</span>
+                        <span class="secondary-text">Your videos will be private untill you publish them</span>
+                        <span class="shadow-btn-container">
+                            <button class="subscribe btn-secondary">Select files</button>
+                        </span>
+                  </div>
+                  <div class="input-field">
+                    <span class="label">
+                      <label for="thumbnail">Thumbnail: </label>
+                    </span>
+                    <span class="flex-row-align">
+                      <span>
+                        <button class="img-upload-btn" type="button" (click)="thumbnailPicker.click()">Browse</button>
+                      </span>
+                      <!-- <input type="file" #thumbnailPicker (change)="onImagePicked($event,'avatar')"> -->
+                      <input type="file" #thumbnailPicker>
+                      <!-- <div class="image-preview" *ngIf="avatarPreview !=='' && avatarPreview">
+                        <img [src]="avatarPreview" alt="">
+                      </div> -->
+                    </span>
+                  </div>
+                  <div class="input-field">
+                    <span class="title">
+                      <label for="title">Title: </label>
+                    </span>
+                    <span>
+                      <input id="title" class="user-input-form" type="text" formControlName="title"/>
+                    </span>
+                  </div>
+              
+                  <div class="input-field">
+                    <span class="description">
+                      <label for="description">Description: </label>
+                    </span>
+                    <span>
+                      <textarea rows="6" id="description" class="user-input-form" type="text" formControlName="description"></textarea>
+                    </span>
+                  </div>
+                
+                </form>
+        
+    </div>
+</div>

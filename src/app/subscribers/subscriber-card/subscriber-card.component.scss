@@ -1,0 +1,27 @@
+.subscriber-card-container{
+    color: #fff;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    // position: relative;
+    .subscriber-info{
+        display: flex;
+        .channel-icon img{
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: no-repeat center center/cover;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+
+        .subscriber-details{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    
+}

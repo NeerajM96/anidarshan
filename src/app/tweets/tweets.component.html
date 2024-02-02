@@ -1,0 +1,9 @@
+<div class="tweet-container">
+    <div class="create-tweet-section" *ngIf="myChannel">
+        <input type="text" placeholder="Write a tweet" [formControl]="newTweet">
+        <button class="btn-secondary send-btn" (click)="createNewTweet()">Send</button>
+    </div>
+    <div *ngFor="let tweet of tweetData">
+        <app-tweet-card [channelIcon]="channelIcon" [channelName]="channelName" [data]="tweet" ></app-tweet-card>
+    </div>
+</div>

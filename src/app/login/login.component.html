@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="form-container">
+    <div class="logo-container">
+        <div class="logo-section">
+            <div class="logo"> A<span>D</span> </div>
+        </div>
+      </div>
+    <form style="display: block;" [formGroup]="loginForm">
+        <div class="input-field">
+          <span class="label">
+            <label for="email">Email: </label>
+          </span>
+          <span>
+            <input id="email" type="text" formControlName="email" placeholder="Enter your email"/>
+          </span>
+        </div>
+    
+        <div class="input-field">
+          <span class="label">
+            <label for="password">Password: </label>
+          </span>
+          <span>
+            <input id="password" type="password" formControlName="password" placeholder="Enter your password" />
+          </span>
+        </div>
+    
+        <div class="input-field">
+          <div
+            class="btn-secondary signin-btn"
+            (click)="loginUser()"
+          >
+            Sign up with email
+          </div>
+        </div>
+      </form>
+      <app-loader *ngIf="isLoading"></app-loader>
+  </div>
+</div>

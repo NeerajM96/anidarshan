@@ -1,0 +1,11 @@
+.container{
+    background: #121212;
+    color: #fff;
+    padding: 20px 0;
+    
+    height: calc(100vh - 68px);
+    overflow-y: auto;
+    .my-subscribers-section{
+        height: 100%;
+    }
+}

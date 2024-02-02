@@ -1,0 +1,80 @@
+<div class="signup-container">
+    <div class="form-container">
+      <div class="logo-container">
+          <div class="logo-section">
+              <div class="logo"> A<span>N</span> </div>
+          </div>
+        </div>
+      <form style="display: block;" [formGroup]="signupForm">
+        <div class="input-field">
+            <span class="label">
+              <label for="fullName">Full Name: </label>
+            </span>
+            <span>
+              <input id="fullName" class="user-input-form" type="text" formControlName="fullName" placeholder="Enter your full name"/>
+            </span>
+          </div>
+          <div class="input-field">
+            <span class="username">
+              <label for="username">Username: </label>
+            </span>
+            <span>
+              <input id="username" class="user-input-form" type="text" formControlName="username" placeholder="Enter your username"/>
+            </span>
+          </div>
+          <div class="input-field">
+            <span class="label">
+              <label for="email">Email: </label>
+            </span>
+            <span>
+              <input id="email" class="user-input-form" type="text" formControlName="email" placeholder="Enter your email"/>
+            </span>
+          </div>
+      
+          <div class="input-field">
+            <span class="label">
+              <label for="password">Password: </label>
+            </span>
+            <span>
+              <input id="password" class="user-input-form" type="password" formControlName="password" placeholder="Enter your password" />
+            </span>
+          </div>
+          <div class="input-field">
+            <span class="label">
+              <label for="avatar">Avatar: </label>
+            </span>
+            <span>
+              <!-- <input id="avatar" type="file" formControlName="avatar" placeholder="Enter your avatar"/> -->
+              <button class="img-upload-btn" type="button" (click)="avatarPicker.click()">Avatar</button>
+              <input type="file" #avatarPicker (change)="onImagePicked($event,'avatar')">
+              <div class="image-preview" *ngIf="avatarPreview !=='' && avatarPreview">
+                <img [src]="avatarPreview" alt="">
+              </div>
+            </span>
+          </div>
+          <div class="input-field">
+            <span class="label">
+              <label for="coverImage">Cover Image: </label>
+            </span>
+            <span>
+              <!-- <input id="coverImage" type="file" formControlName="coverImage" placeholder="Enter your cover image"/> -->
+              <button class="img-upload-btn" type="button" (click)="coverImagePicker.click()">Cover Image</button>
+              <input type="file" #coverImagePicker (change)="onImagePicked($event, 'coverImage')">
+              <div class="image-preview" *ngIf="coverImagePreview !=='' && coverImagePreview">
+                <img [src]="coverImagePreview" alt="">
+              </div>
+            </span>
+          </div>
+          <div class="input-field">
+            <div
+              class="btn-secondary signup-btn"
+              (click)="onSignup()"
+            >
+              Sign up with email
+            </div>
+          </div>
+        </form>
+        <app-loader *ngIf="isLoading"></app-loader>
+    </div>
+  </div>
+  

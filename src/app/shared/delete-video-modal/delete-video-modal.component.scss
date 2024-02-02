@@ -1,0 +1,37 @@
+.delete-video-container{
+    background: #121212;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding: 16px;
+    .info-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        .trash-icon-container{
+            width: 32px;
+            min-width: 32px;
+            height: 32px;
+            min-height: 32px;
+            border-radius: 50%;
+            background-color: rgb(254, 202, 202);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                color: rgb(185, 28, 28);
+                font-size: 24px;
+            }
+        }
+        .modal-text{
+            margin:0 20px;
+        }
+    }
+
+    .footer-btn-container{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap:20px;
+    }
+}

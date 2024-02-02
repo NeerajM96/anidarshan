@@ -1,0 +1,16 @@
+<div class="subscriber-card-container">
+    <div class="subscriber-info">
+        <div class="channel-icon">
+            <img [src]="channelIcon" alt="">
+        </div>
+        <div class="subscriber-details">
+            <div class="subscriber-title">{{channelName}}</div>
+            <div class="tertiary-text">{{ subscribersCount }} Subscribers</div>
+        </div>
+    </div>
+    <div class="subscribe-btn-container">
+        <button class="subscribe btn-secondary" [ngClass]="isSubscribed? 'btn-d-primary':'btn-d-secondary'">
+            Subscribe<span *ngIf="isSubscribed">d</span>
+       </button>
+    </div>
+</div>

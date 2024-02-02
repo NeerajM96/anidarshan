@@ -1,0 +1,35 @@
+.subscriber-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    .search-bar{
+        margin: 16px 0 24px 0;
+        i{
+            position: absolute;
+
+        }
+        .icon{
+            padding: 12px;
+            font-size: 20px;
+        }
+        input{
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            color: #121212;
+            border: none;
+            padding: 10px;
+            font-size: 100%;
+            padding: 10px 10px 10px 40px;
+            border-radius: 8px;
+        }
+        input:focus{
+            outline: none;
+        }
+        ::placeholder,.icon{
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity));
+            font-size: 0.875rem;
+        }
+    }
+}

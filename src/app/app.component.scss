@@ -1,0 +1,18 @@
+.main-container{
+    height: 100vh;
+    margin: 0 4px;
+}
+
+.home-page-sidebar{
+    display: grid;
+    grid-template-columns: 20% auto;
+    gap: 2px;
+    height: calc(100vh - 68px);
+    .router-outlet-section{
+        overflow-y: auto;
+    }
+}
+
+.home-page-no-sidebar{
+    height: calc(100vh - 68px);
+}

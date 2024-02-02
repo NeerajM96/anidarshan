@@ -1,0 +1,17 @@
+<div class="delete-video-container">
+    <div class="info-container secondary-fonts">
+        <div class="trash-icon-container">
+            <i class="fa fa-trash"></i>
+        </div>
+        <div class="modal-text">
+            <div class="text-xl fw-3">Delete Video</div>
+            <div class="tertiary-text">Are you sure you want to delete this video? Once its deleted, you will not be able to recover it.</div>
+        </div>
+        <div class="close-icon" (click)="close()">X</div>
+    </div>
+
+    <div class="footer-btn-container">
+        <div ><button class="cancel-btn" (click)="close()">Cancel</button></div>
+        <div><button class="delete-btn" (click)="close()">Delete</button></div>
+    </div>
+</div>

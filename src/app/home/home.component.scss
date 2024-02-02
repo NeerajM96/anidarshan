@@ -1,0 +1,15 @@
+.home-container{
+    background: #121212;
+    color: #fff;
+    padding: 0 8px;
+    
+    // top:68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 68px);
+    overflow-y: auto;
+    .video-section{
+        height: 100%;
+    }
+}

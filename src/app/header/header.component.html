@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="logo-section">
+      <div class="logo" (click)="routeToHome()"> A<span>D</span> </div>
+    </div>
+    <div class="search-bar">
+      <i class="fa fa-search icon"></i>
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="auth-section">
+        <div class="login btn-primary" *ngIf="!isLoggedIn" routerLink="/login">Log in</div>
+        <div class="signup btn-secondary" *ngIf="!isLoggedIn" routerLink="/signup">Sign up</div>
+        <div class="user-auth-menu-btn" *ngIf="isLoggedIn" [matMenuTriggerFor]="authMenu">
+          <div class="user-channel-icon">
+            <img [src]="avatar" alt="">
+          </div>
+          <mat-menu #authMenu="matMenu" class="auth-menu">
+            <button class="btn-clr" mat-menu-item routerLink="/admin/dashboard">Admin Dashboard</button>
+            <button mat-menu-item (click)="logoutUser()">Logout</button>
+          </mat-menu>
+        </div>
+    </div>
+  </div>

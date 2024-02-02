@@ -1,0 +1,73 @@
+.upload-video-dialog {
+    background: #121212;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    .upload-header{
+      width: 100%;
+      padding: 16px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      #header-title{
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    }
+    .upload-container-body{
+      margin: 0 30px;
+      padding: 15px;
+      .upload-container{
+        padding: 48px 16px;
+        border: 2px dashed #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .upload-icon{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          border: 1px solid #121212;
+          background-color: rgb(174 , 122, 255);
+          // margin: auto;
+          i{
+            font-size: 64px;
+            
+          }
+        }
+        span{
+          margin-bottom: 10px;
+        }
+        span:last-child{
+          margin-bottom: 0;
+        }
+      }
+      .input-field{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin:20px 0 0px 0px;
+        input{
+            width: 100%;
+            padding: 10px;
+            background-color: #121212;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+        label::after{
+          content: '*';
+        }
+        textarea{
+          width: 100%;
+          padding: 10px;
+          background-color: #121212;
+          border: 1px solid #fff;
+          color: #fff;
+      }
+    }
+    }
+  }

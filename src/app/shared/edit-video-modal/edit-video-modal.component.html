@@ -1,0 +1,46 @@
+<div class="upload-video-dialog">
+    <div class="upload-header">
+        <span id="header-title">
+            Edit Video
+        </span>
+        <span class="shadow-btn-container" (click)="close()">
+            <div class="close-icon" (click)="close()">X</div>
+        </span>
+        
+    </div>
+    <div class="upload-container-body">
+            <form [formGroup]="editForm">
+                  <div class="upload-container">
+                    <img [src]="thumbnailPreview" alt=""> 
+                  </div>
+                  <div class="input-field">
+                    <span class="label">
+                      <label for="thumbnail">Thumbnail: </label>
+                    </span>
+                    <span class="flex-row-align">
+                      <span>
+                        <button class="img-upload-btn" type="button" (click)="thumbnailPicker.click()">Browse</button>
+                      </span>
+                      <input type="file" #thumbnailPicker (change)="onImagePicked($event,'avatar')">
+                    </span>
+                  </div>
+                  <div class="input-field">
+                    <span class="title">
+                      <label for="title">Title: </label>
+                    </span>
+                    <span>
+                      <input id="title" class="user-input-form" type="text" formControlName="title"/>
+                    </span>
+                  </div>
+              
+                  <div class="input-field">
+                    <span class="description">
+                      <label for="description">Description: </label>
+                    </span>
+                    <span>
+                      <textarea rows="6" id="description" class="user-input-form" type="text" formControlName="description"></textarea>
+                    </span>
+                  </div>
+                </form>
+    </div>
+</div>

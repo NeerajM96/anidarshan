@@ -1,0 +1,79 @@
+<div class="dashboard-container secondary-fonts">
+    <div class="dashboard-header">
+        <div class="heading">
+            <p class="text-xl fw-3">Welcome Back, {{channelName}}</p>
+            <p class="secondary-text">Seamless Video Management, Elevated Results.</p>
+        </div>
+        <div class="upload-video-btn">
+            <button class="logout btn-secondary" (click)="uploadVideoDialog()"><i class="fa fa-plus"></i> Upload Video</button>
+        </div>
+    </div>
+    <div class="channel-details">
+        <div class="details-field">
+            <div class="details-field-icon">
+                <i class="fa fa-eye"></i>
+            </div>
+            <div class="details-field-text tertiary-text">Total views</div>
+            <div class="details-field-count text-3xl">{{totalViews}}</div>
+        </div>
+        <div class="details-field">
+            <div class="details-field-icon">
+                <i class="fa fa-user-o"></i>
+            </div>
+            <div class="details-field-text tertiary-text">Total subscribers</div>
+            <div class="details-field-count text-3xl">{{totalSubscribers}}</div>
+        </div>
+        <div class="details-field">
+            <div class="details-field-icon">
+                <i class="fa fa-heart-o"></i>
+            </div>
+            <div class="details-field-text tertiary-text">Total likes</div>
+            <div class="details-field-count text-3xl">{{totalLikes}}</div>
+        </div>
+    </div>
+    <div class="video-details-table">
+        <table>
+            <thead>
+                <tr>
+                    <th id="status">Status</th>
+                    <th id="video-uploaded">Video Uploaded</th>
+                    <th id="rating">Rating</th>
+                    <th id="date-uploaded">Date Uploaded</th>
+                    <th id="edit"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of data; let id = index">
+                    <td class="slider-container">
+                        <span>
+                            <label class="switch">
+                                <input type="checkbox" [checked]="row.published">
+                                <span class="slider round" (click)="togglePublish($event,id)"></span>
+                            </label>
+                        </span>
+                        <span [ngClass]="row.published ? 'published': 'unpublished'">{{ row.published ? 'Published' : 'Unpublished' }}</span>
+                    </td>
+                    <td>
+                        <div class="video-container">
+                            <div class="channel-icon">
+                                <img [src]="row.thumbnail" alt="">
+                            </div>
+                            <div class="channel-name">{{row.title}}</div>
+                        </div>
+                    </td>
+                    <td class="rating-container">
+                        <span class="likes">{{row.likes}} likes </span>
+                        <span class="dislikes">{{row.dislikes}} dislikes</span>
+                    </td>
+                    <td>{{row.dateUploaded}}</td>
+                    <td>
+                        <div class="edit-section">
+                            <i class="fa fa-pencil" (click)="editVideoDialog()"></i>
+                            <i class="fa fa-trash" (click)="deleteVideoDialog()"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
