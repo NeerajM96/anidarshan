@@ -1,0 +1,11 @@
+.video-player-container{
+    width: 400px;
+    height: 200px;
+}
+.collapsable-side-bar{
+    position:fixed;
+    top: 68px;
+    left: 0px;
+    z-index: 2;
+    width: 100px;height: 100px;background-color: green;
+}

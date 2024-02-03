@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isLoggedIn = false
   showSidebar = true
   showHeader = true
+  
   constructor(private route: ActivatedRoute, public dataStore: DataStoreService,private authService:AuthService){
     
   }
