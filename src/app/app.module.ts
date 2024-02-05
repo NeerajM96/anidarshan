@@ -31,6 +31,11 @@ import { DeleteVideoModalComponent } from './shared/delete-video-modal/delete-vi
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditVideoModalComponent } from './shared/edit-video-modal/edit-video-modal.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { VideoPlayerDashboardComponent } from './video-player-dashboard/video-player-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,7 @@ import { EditVideoModalComponent } from './shared/edit-video-modal/edit-video-mo
     DeleteVideoModalComponent,
     AdminDashboardComponent,
     EditVideoModalComponent,
+    VideoPlayerDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +71,11 @@ import { EditVideoModalComponent } from './shared/edit-video-modal/edit-video-mo
     BrowserAnimationsModule,
     MatDialogModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   // multi:true means, since we can have multiple interceptors in the app, so don't overwrite exisiting interceptors 
   // and add it as an additional one instead and the internals will be handled by HttpClient

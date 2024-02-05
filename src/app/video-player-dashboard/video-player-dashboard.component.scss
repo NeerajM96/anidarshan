@@ -1,11 +1,15 @@
-.video-player-container{
-    width: 400px;
-    height: 200px;
-}
-.collapsable-side-bar{
-    position:fixed;
-    top: 68px;
-    left: 0px;
-    z-index: 2;
-    width: 100px;height: 100px;background-color: green;
+.video-dashboard{
+    display: flex;
+    justify-content:space-between;
+    .video-player-container{
+        width: 100%;
+        height: auto;
+        margin-right: 16px;
+    }
+    .suggested-videos{
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background-color: green;
+    }
 }
