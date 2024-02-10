@@ -1,4 +1,73 @@
-.video-card-container{
+/* List View */
+.video-card-container-list{
+    // max-width: 390px;
+    display: flex;
+    margin-bottom: 14px;
+    height: 176px;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    cursor: pointer;
+    .thumbnail{
+        position: relative;
+        img{
+            background: no-repeat center center/cover;
+            object-fit: contain;
+            height: 176px;
+        }
+        .video-duration-text{
+            position: absolute;
+            color: #fff;
+            background-color: #121212;
+            padding: 2px 6px;
+            bottom: 10px;
+            left: 76%;
+            border-radius: 4px;
+        }
+    }
+
+    .video-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // padding: 6px;
+        margin-left: 14px;
+        .channel-icon{
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .channel-icon img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: no-repeat center center/cover;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .video-details{
+            .video-title{
+                color: #fff;
+                font-weight: 600;
+            }
+            .video-view-data{
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 0.875rem;
+                margin-top: 10px;
+            }
+
+            .channel-name{
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 0.875rem;
+            }
+        }
+        .description{
+            font-size: 0.875rem;
+        }
+    }
+}
+
+
+/* Grid View */
+.video-card-container-grid{
     max-width: 390px;
     display: flex;
     flex-direction: column;

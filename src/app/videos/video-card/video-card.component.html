@@ -1,10 +1,9 @@
-<div class="video-card-container">
+<div class="video-card-container-grid" *ngIf="viewMode !== 'list'">
     <div class="thumbnail">
         <img [src]="thumbnail" alt="">
         <span class="video-duration-text">{{duration}}</span>
     </div>
     <div class="video-info">
-        <!-- <div class="channel-icon"> -->
             <div class="channel-icon" *ngIf="!onMyChannelPage">
             <img [src]="channelIcon" alt="">
         </div>
@@ -14,7 +13,26 @@
                 <span>{{viewCount}} Views</span> . <span>{{uploadedAt}}</span>
             </div>
             <div class="channel-name" *ngIf="!onMyChannelPage">{{channelName}}</div>
-            <!-- <div class="channel-name">{{channelName}}</div> -->
         </div>
+    </div>
+</div>
+
+<div class="video-card-container-list" *ngIf="viewMode === 'list'">
+    <div class="thumbnail">
+        <img [src]="thumbnail" alt="">
+        <span class="video-duration-text">{{duration}}</span>
+    </div>
+    <div class="video-info">
+        <div class="video-details">
+            <div class="video-title">{{title}}</div>
+            <div class="video-view-data">
+                <span>{{viewCount}} Views</span> . <span>{{uploadedAt}}</span>
+            </div>
+        </div>
+        <div class="channel-icon" *ngIf="!onMyChannelPage">
+            <img [src]="channelIcon" alt="">
+            <div class="channel-name" *ngIf="!onMyChannelPage">{{channelName}}</div>
+        </div>
+        <p class="description">{{description}}</p>
     </div>
 </div>

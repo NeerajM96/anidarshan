@@ -13,9 +13,13 @@ export class VideoCardComponent implements OnInit{
   viewCount:string = ''
   uploadedAt:string = ''
   channelName:string = ''
+  description:string = ''
 
   @Input()
   data:any
+
+  @Input()
+  viewMode = 'grid'
 
   @Input()
   onMyChannelPage = false
@@ -28,6 +32,7 @@ export class VideoCardComponent implements OnInit{
     this.viewCount = this.data.viewCount
     this.uploadedAt = this.data.uploadedAt
     this.channelName = this.data.channelName
+    this.description = this.data.description
   }
 
 }
