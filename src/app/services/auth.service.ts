@@ -46,10 +46,12 @@ interface ChannelInfo{
   success:boolean
 }
 
-interface AuthData{
-  accessToken:string;
-  userId:string;
-  username:string;
+interface RefreshToken{
+  message:string;
+  statusCode:number;
+  data:{
+    accessToken:string;
+  }
 }
 
 @Injectable({
@@ -167,6 +169,16 @@ export class AuthService {
         }
       })
     );
+  }
+
+  refreshAccessToken(){
+    const endPoint = this.apiUrl + "/refresh-token"
+    console.log("trying to refresh")
+    return this.http.post<RefreshToken>(endPoint,{}).pipe(tap(
+      res =>{
+        localStorage.setItem("accessToken",res.data.accessToken)
+      }
+    ))
   }
 
   getUserState() {
