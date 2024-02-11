@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class VideosComponent {
     @Input()
     viewMode = 'grid'
+
+    @Input()
+    videoDetailsPage:boolean = false
+
       @Input()
       toMyChannelPage = false
 

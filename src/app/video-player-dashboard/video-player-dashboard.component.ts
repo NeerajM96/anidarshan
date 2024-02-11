@@ -15,6 +15,7 @@ export class VideoPlayerDashboardComponent implements OnInit{
   url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   urlForm = new FormControl()
 
+
     constructor(private dataStore:DataStoreService) {
       dataStore.showSideBar.next(false)
     }

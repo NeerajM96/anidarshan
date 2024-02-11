@@ -1,15 +1,17 @@
 .video-dashboard{
     display: flex;
-    justify-content:space-between;
-    .video-player-container{
-        width: 100%;
-        height: auto;
-        margin-right: 16px;
+    background-color: #121212;
+    .video-details{
+        width: 65%;
+        .video-player-container{
+            margin: 20px;
+            vg-player{
+                
+            }
+        }
     }
     .suggested-videos{
-        width: 100%;
-        max-width: 400px;
+        width: auto;
         height: 100%;
-        background-color: green;
     }
 }

@@ -23,6 +23,13 @@ export class VideoCardComponent implements OnInit{
 
   @Input()
   onMyChannelPage = false
+
+  @Input()
+  showDescription:boolean = true;
+
+  @Input()
+  videoDetailsPage:boolean = false
+
   // onMyChannelPage:boolean = true  // hides channel name and icon when I am on my page.
   ngOnInit(): void {
     this.thumbnail = this.data.thumbnail

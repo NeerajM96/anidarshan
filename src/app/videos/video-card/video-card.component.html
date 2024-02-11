@@ -17,6 +17,7 @@
     </div>
 </div>
 
+<!-- List view -->
 <div class="video-card-container-list" *ngIf="viewMode === 'list'">
     <div class="thumbnail">
         <img [src]="thumbnail" alt="">
@@ -25,14 +26,15 @@
     <div class="video-info">
         <div class="video-details">
             <div class="video-title">{{title}}</div>
+            <div class="channel-name" *ngIf="videoDetailsPage">{{channelName}}</div>
             <div class="video-view-data">
                 <span>{{viewCount}} Views</span> . <span>{{uploadedAt}}</span>
             </div>
         </div>
-        <div class="channel-icon" *ngIf="!onMyChannelPage">
+        <div class="channel-icon" *ngIf="!onMyChannelPage && !videoDetailsPage">
             <img [src]="channelIcon" alt="">
             <div class="channel-name" *ngIf="!onMyChannelPage">{{channelName}}</div>
         </div>
-        <p class="description">{{description}}</p>
+        <p class="description" *ngIf="!videoDetailsPage">{{description}}</p>
     </div>
 </div>
