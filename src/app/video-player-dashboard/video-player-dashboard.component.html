@@ -1,7 +1,7 @@
 <div class="video-dashboard">
     <div class="video-details">
         <div class="video-player-container">
-            <vg-player (onPlayerReady)="onPlayerReady($event)">
+            <vg-player class="video-player" (onPlayerReady)="onPlayerReady($event)">
                 <vg-overlay-play></vg-overlay-play>
                 <vg-buffering></vg-buffering>
                 <vg-scrub-bar>
@@ -24,7 +24,7 @@
             
                     <vg-fullscreen></vg-fullscreen>
                 </vg-controls>
-                <video [vgMedia]="$any(media)" #media [poster]="'https://images.pexels.com/photos/2519817/pexels-photo-2519817.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'" preload="auto" crossorigin>
+                <video [vgMedia]="$any(media)" #media [poster]="'https://images.pexels.com/photos/1144256/pexels-photo-1144256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'" preload="auto" crossorigin>
                     <source [src]="url" type="video/mp4">
                 </video>
             </vg-player>
@@ -33,9 +33,10 @@
         <div class="comments" style="height:100px;border: 1px solid red;width: 100%;">jbjbjbjb</div>
     </div>
     <!-- I won't be implementing suggested videos for some time, so comment this part and video player take all width -->
-    <!-- <div class="suggested-videos">
+    <div class="suggested-videos">
+        <!-- as of now for suggested videos, return all the videos of the user whose video is being played -->
         <app-videos [viewMode]="'list'" [videoDetailsPage]="true"></app-videos>
-    </div> -->
+    </div>
 </div>
 
-<!-- TO DO: fixed poster taking extra height bug -->
+<!-- TO DO: This issue seems to be fixed now . fixed poster taking extra height bug -->
