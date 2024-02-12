@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { VgApiService } from '@videogular/ngx-videogular/core';
+import { BitrateOptions, VgApiService } from '@videogular/ngx-videogular/core';
 import { DataStoreService } from '../services/data-store.service';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { VideoService } from '../services/video.service';
 
 @Component({
   selector: 'app-video-player-dashboard',
@@ -12,7 +14,12 @@ export class VideoPlayerDashboardComponent implements OnInit{
   preload: string = 'auto';
   api: VgApiService = new VgApiService;
   paused:boolean = false;
-  url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  
+  url = "https://res.cloudinary.com/dqvwtmjbb/video/upload/sp_auto/v1707761100/ppqfhcn5znvvjof29xp6.m3u8"
+  hlsBitrates: BitrateOptions[] = [];
+  videoId = ''
+
+  
   urlForm = new FormControl()
   data = {
     title:'Advanced React Patterns',
@@ -28,12 +35,15 @@ export class VideoPlayerDashboardComponent implements OnInit{
     just starting out, this series is designed to elevate your React skills to the next level.`
   }
 
-    constructor(private dataStore:DataStoreService) {
+    constructor(private dataStore:DataStoreService, private route:ActivatedRoute, private videoService:VideoService) {
       dataStore.showSideBar.next(false)
     }
     
     ngOnInit(): void {
-      
+      this.videoId = this.route.snapshot.paramMap.get("videoId") || ''
+      this.videoService.getVideoById(this.videoId).subscribe(res => {
+        console.log("Video details: ", res)
+      })
     }
 
     onPlayerReady(api: VgApiService) {
@@ -115,8 +125,8 @@ export class VideoPlayerDashboardComponent implements OnInit{
     this.show = !this.show
   }
   
-  setUrl(){
-    this.url = this.urlForm.value
+  handleGetBitrates(event: any) {
+    this.hlsBitrates = event;
   }
 
   onSubscribe(){

@@ -39,6 +39,7 @@ import { VideoPlayerDashboardComponent } from './video-player-dashboard/video-pl
 import { CommentsComponent } from './comments/comments.component';
 import { CommentCardComponent } from './comments/comment-card/comment-card.component';
 import { UploadVideoComponent } from './videos/upload-video/upload-video.component';
+import { VgStreamingModule } from '@videogular/ngx-videogular/streaming';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { UploadVideoComponent } from './videos/upload-video/upload-video.compone
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    VgStreamingModule
   ],
   // multi:true means, since we can have multiple interceptors in the app, so don't overwrite exisiting interceptors 
   // and add it as an additional one instead and the internals will be handled by HttpClient

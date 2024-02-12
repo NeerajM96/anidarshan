@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"signup", component:SignupComponent},
   {path:"my-subscribers", component:MySubscribersComponent, canActivate:[AuthGuard]},
   {path:"admin/dashboard", component:AdminDashboardComponent, canActivate:[AuthGuard]},
-  {path:"watch", component:VideoPlayerDashboardComponent},
+  {path:"watch/:videoId", component:VideoPlayerDashboardComponent},
 ];
 
 @NgModule({
