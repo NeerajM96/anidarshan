@@ -22,7 +22,7 @@ export class UploadVideoModalComponent implements OnInit{
   thumbnailPreview:string = ''
   thumbnailName:string = ''
   videoFileName:string = ''
-  maxAllowedFileSize:number = 20 //max size allowed 20mb 
+  maxAllowedFileSize:number = 200 //max size allowed 200 MB 
 
   constructor(private fb:FormBuilder, private dialogRef:MatDialogRef<UploadVideoModalComponent>, 
     private dialog:MatDialog,
