@@ -40,4 +40,9 @@ export class TweetService {
     const body = { content: tweetContent };
     return this.http.post<CreateTweetAPI>(endPoint, body);
   }
+
+  deleteTweetById(id:string){
+    const endPoint = this.apiUrl + id
+    return this.http.delete<any>(endPoint)
+  }
 }

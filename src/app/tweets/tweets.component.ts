@@ -55,4 +55,13 @@ export class TweetsComponent implements OnInit {
     this.tweetData.push(tweet);
     this.newTweet.reset();
   }
+
+  deleteTweet(data:any){
+    const id = data[0]
+    const uiRowId = data[1]
+    this.tweetService.deleteTweetById(id).subscribe(res =>{
+      this.tweetData.splice(uiRowId,1)
+    })
+    
+  }
 }
