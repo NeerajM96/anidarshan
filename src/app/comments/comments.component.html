@@ -1,0 +1,11 @@
+<div class="comments-container">
+    <p>{{commentsData.length}} Comments</p>
+    <div class="add-comment-section">
+        <input type="text" placeholder="Add a comment" [formControl]="addComment">
+        <button class="btn-secondary add-btn" (click)="onAddComment()">Add</button>
+    </div>
+    <span class="horizontal-line"></span>
+    <div *ngFor="let comment of commentsData; let uiRowId = index">
+        <app-comment-card [data]="comment" ></app-comment-card>
+    </div>
+</div>

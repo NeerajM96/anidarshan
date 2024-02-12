@@ -1,0 +1,15 @@
+<div class="comment-card-container">
+    <div class="comment-info">
+        <div class="channel-icon">
+            <img [src]="channelIcon" alt="">
+        </div>
+        <div class="comment-details">
+            <div class="fullname">{{fullName}}
+                <span class="secondary-text">{{ updatedAt | timeAgo}}</span>
+            </div>
+            <div class="comment">
+                {{content}}
+            </div>
+        </div>
+    </div>
+</div>

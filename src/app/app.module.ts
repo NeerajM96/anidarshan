@@ -36,6 +36,8 @@ import {VgControlsModule} from '@videogular/ngx-videogular/controls';
 import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { VideoPlayerDashboardComponent } from './video-player-dashboard/video-player-dashboard.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentCardComponent } from './comments/comment-card/comment-card.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { VideoPlayerDashboardComponent } from './video-player-dashboard/video-pl
     DeleteVideoModalComponent,
     AdminDashboardComponent,
     EditVideoModalComponent,
-    VideoPlayerDashboardComponent
+    VideoPlayerDashboardComponent,
+    CommentsComponent,
+    CommentCardComponent
   ],
   imports: [
     BrowserModule,

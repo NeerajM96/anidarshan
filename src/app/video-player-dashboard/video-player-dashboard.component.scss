@@ -1,8 +1,10 @@
 .video-dashboard{
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     display: flex;
     background-color: #121212;
-    .video-details{
+    .video-details-section{
         width: 100%;
+        margin: 20px;
         .video-player-container {
             position: relative;
             width: 100%;
@@ -25,3 +27,125 @@
     }
 }
 
+
+.video-info{
+  color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 16px;
+  margin-top: 16px;
+  .video-info-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .video-details-subheader-2{
+      display: flex;
+      justify-content: space-between;
+
+      .likes-dislikes{
+        display: flex;
+        .like-btn{
+          cursor: pointer;
+          border: 2px solid #e5e7eb;
+          border-right: 1px solid #e5e7eb;
+          color: #fff;
+          background-color: #121212;
+          border-radius: 0.5rem;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          padding: 6px 16px;
+          display: flex;
+          align-items: center;
+          i{
+            padding-right:6px
+          }
+        }
+        .dislike-btn{
+          cursor: pointer;
+          border: 2px solid #e5e7eb;
+          border-left: 1px solid #e5e7eb;
+          color: #fff;
+          background-color: #121212;
+          border-radius: 0.5rem;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding: 6px 16px;
+          display: flex;
+          align-items: center;
+          i{
+            padding-right:6px
+          }
+        }
+        button:hover{
+          i{
+            color: #ae7aff;
+          }
+        }
+      }
+      .save-to-playlist{
+        background-color: #fff;
+        padding: 6px 16px;
+        margin-left:16px;
+        border-radius: 0.5rem;
+        color: #121212;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn-text{
+          margin-left:10px
+        }
+        &:hover{
+          i{
+            color: #ae7aff;
+          }
+        }
+      }
+    }
+  }
+
+  .channel-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0;
+    .channel-icon{
+      display: flex;
+      align-items: center;
+      img{
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: no-repeat center center/cover;
+      }
+      span{
+        margin-left: 16px;
+      }
+    }
+
+    .subscribe-btn-container{
+      margin-right: 16px;
+      padding-top: 24px;
+      button{
+          box-shadow: 4px 4px #4f4e4e;
+      }
+      button:active{
+          box-shadow: 1px 1px #4f4e4e;
+          transform: translate(4px, 4px);
+      }
+  }
+  }
+
+  .description{
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+  }
+}
+
+.comments{
+  color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 16px;
+  margin-top: 16px;
+}

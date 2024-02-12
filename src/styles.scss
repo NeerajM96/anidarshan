@@ -149,6 +149,12 @@ input[type="file"]{
     font-size: 0.875rem;
 }
 
+.quarternary-text{
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity));
+    font-size: 0.875rem;
+}
+
 .hide-icon{
     display: none;
 }
@@ -246,6 +252,11 @@ input[type="file"]{
 }
 
 // headings
+.text-lg{
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
 .text-xl{
     font-size: 1.25rem;
     font-weight: 600;
@@ -290,3 +301,8 @@ input[type="file"]{
     }
 }
 
+
+// borders
+.horizontal-line{
+    border-top: 1px solid ;
+}

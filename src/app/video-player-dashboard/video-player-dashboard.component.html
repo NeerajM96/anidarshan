@@ -1,5 +1,5 @@
 <div class="video-dashboard">
-    <div class="video-details">
+    <div class="video-details-section">
         <div class="video-player-container">
             <vg-player class="video-player" (onPlayerReady)="onPlayerReady($event)">
                 <vg-overlay-play></vg-overlay-play>
@@ -29,9 +29,48 @@
                 </video>
             </vg-player>
         </div>
-        <div class="video-info" style="height:100px;border: 1px solid green;width: 100%;">bjbjbjbj</div>
-        <div class="comments" style="height:100px;border: 1px solid red;width: 100%;">jbjbjbjb</div>
+        <div class="video-info">
+            <div class="video-info-header">
+                <div class="video-info-subheader-1">
+                    <div class="video-title text-lg">{{data.title}}</div>
+                    <div class="video-view-data quarternary-text">
+                        <span>{{data.viewCount}} Views</span> . <span>{{data.uploadedAt | timeAgo}}</span>
+                    </div>
+                </div>
+                <div class="video-details-subheader-2">
+                    <div class="likes-dislikes">
+                        <button class="like-btn"><i class="fa fa-thumbs-up"></i> {{data.likes}}</button>
+                        <button class="dislike-btn"><i class="fa fa-thumbs-down"></i> {{data.dislikes}}</button>
+                    </div>
+                    <div class="save-to-playlist">
+                        <i class="material-icons">create_new_folder</i> <span class="btn-text">Save</span>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-info">
+                <div class="channel-icon">
+                    <img [src]="data.channelIcon" alt="">
+                    <span>
+                        <p class="quarternary-text">{{data.channelName}}</p>
+                        <p class="secondary-text">{{data.subscribers}} Subscribers</p>
+                    </span>
+                </div>
+
+                <div class="subscribe-btn-container">
+                    <button class="subscribe btn-secondary" (click)="onSubscribe()">
+                        <i class="fa fa-user-plus"></i> Subscribe<span *ngIf="data.isSubscribed">d</span>
+                    </button>
+                </div>
+            </div>
+            <div class="description">
+                <p>{{data.description}}</p>
+            </div>
+        </div>
+        <div class="comments">
+            <app-comments></app-comments>
+        </div>
     </div>
+
     <!-- I won't be implementing suggested videos for some time, so comment this part and video player take all width -->
     <div class="suggested-videos">
         <!-- as of now for suggested videos, return all the videos of the user whose video is being played -->

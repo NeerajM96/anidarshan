@@ -14,7 +14,19 @@ export class VideoPlayerDashboardComponent implements OnInit{
   paused:boolean = false;
   url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   urlForm = new FormControl()
-
+  data = {
+    title:'Advanced React Patterns',
+    channelName:'React Patterns',
+    channelIcon:"https://images.pexels.com/photos/18264716/pexels-photo-18264716/free-photo-of-man-people-laptop-internet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    viewCount:30164,
+    uploadedAt:'2024-01-19T10:19:02.743+00:00',
+    likes:3050,
+    dislikes:20,
+    subscribers:75432,
+    isSubscribed:false,
+    description:`🚀 Dive into the world of React with our latest tutorial series: "Advanced React Patterns"! 🛠️ Whether you're a seasoned developer or 
+    just starting out, this series is designed to elevate your React skills to the next level.`
+  }
 
     constructor(private dataStore:DataStoreService) {
       dataStore.showSideBar.next(false)
@@ -105,5 +117,9 @@ export class VideoPlayerDashboardComponent implements OnInit{
   
   setUrl(){
     this.url = this.urlForm.value
+  }
+
+  onSubscribe(){
+    
   }
 }
