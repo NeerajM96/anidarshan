@@ -16,7 +16,13 @@
                         <span>Drag and drop to upload files</span>
                         <span class="secondary-text">Your videos will be private untill you publish them</span>
                         <span class="shadow-btn-container">
-                            <button class="subscribe btn-secondary">Select files</button>
+                            <span>
+                              <button class="subscribe btn-secondary" (click)="videoPicker.click()">Select files</button>
+                            </span>
+                            <input type="file" #videoPicker (change)="onImagePicked($event,'video')">
+                            <span>
+                              {{videoFileName}}
+                          </span>
                         </span>
                   </div>
                   <div class="input-field">
@@ -28,10 +34,13 @@
                         <button class="img-upload-btn" type="button" (click)="thumbnailPicker.click()">Browse</button>
                       </span>
                       <!-- <input type="file" #thumbnailPicker (change)="onImagePicked($event,'avatar')"> -->
-                      <input type="file" #thumbnailPicker>
+                      <input type="file" #thumbnailPicker (change)="onImagePicked($event,'thumbnail')">
                       <!-- <div class="image-preview" *ngIf="avatarPreview !=='' && avatarPreview">
                         <img [src]="avatarPreview" alt="">
                       </div> -->
+                      <span>
+                        {{thumbnailName}}
+                      </span>
                     </span>
                   </div>
                   <div class="input-field">

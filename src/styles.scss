@@ -129,6 +129,7 @@
 // hide input field where type=file
 input[type="file"]{
     visibility: hidden;
+    width: 2px;
 }
 
 // side-bar font-awsome icon
@@ -248,6 +249,16 @@ input[type="file"]{
     
     .mdc-snackbar__label {
         color: #121212 !important;
+      }
+}
+
+.snackbar-error-message-box{
+    .mdc-snackbar__surface {
+        background-color: rgb(185, 28, 28) !important;
+      }
+    
+    .mdc-snackbar__label {
+        color: #fff !important;
       }
 }
 

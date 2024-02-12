@@ -42,7 +42,7 @@
         <app-tweets [channelIcon]="avatar" [myChannel]="myChannel" [channelName]="fullName"  *ngIf="currTab === 'tweets'"></app-tweets>
         <app-subscribers [flag]="'subscribed'" [userId]="userId" *ngIf="currTab === 'subscribers'"></app-subscribers>
     </div>
-    <div class="upload-video-btn">
-        <button class="logout btn-secondary" *ngIf="currTab === 'videos'" (click)="uploadVideoDialog()"><i class="fa fa-plus"></i> New Video</button>
+    <div class="upload-video-btn" *ngIf="currTab === 'videos'">
+        <app-upload-video></app-upload-video>
     </div>
 </div>

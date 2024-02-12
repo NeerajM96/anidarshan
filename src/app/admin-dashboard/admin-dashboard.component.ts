@@ -169,24 +169,6 @@ export class AdminDashboardComponent implements OnInit {
     this.data[id].published = !this.data[id].published
   }
 
-  uploadVideoDialog(){
-    const dialogConfig = new MatDialogConfig()
-    // // we are overriding a couple of default behaviors
-    // // user will not be able to close the dialog just by clicking outside of it
-    // dialogConfig.disableClose = true
-    
-    // // the focus will be set automatically on the first form field of the dialog
-    // dialogConfig.autoFocus = true
-    dialogConfig.panelClass = 'upload-dialog-modal'
-    this.dialog.open(UploadVideoModalComponent, dialogConfig)
-  }
-
-  uploadVideoStatusDialog(){
-    const dialogConfig = new MatDialogConfig()
-    dialogConfig.panelClass = 'upload-status-dialog-modal'
-    this.dialog.open(VideoUploadStatusModalComponent, dialogConfig)
-  }
-
   deleteVideoDialog(){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.panelClass = 'delete-video-dialog-modal'

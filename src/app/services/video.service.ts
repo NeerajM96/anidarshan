@@ -11,4 +11,14 @@ export class VideoService {
   getVideoById(id:string){
     
   }
+
+  uploadAVideo(videoFile:File, thumbnail:File,title:string, description:string){
+    const enpoint = this.apiUrl
+    const videoData = new FormData()
+    videoData.append("videoFile", videoFile, "videoFile")
+    videoData.append("thumbnail", thumbnail, "thumbnail")
+    videoData.append("title",title)
+    videoData.append("description",description)
+    return this.http.post<any>(enpoint, videoData)
+  }
 }

@@ -38,6 +38,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { VideoPlayerDashboardComponent } from './video-player-dashboard/video-player-dashboard.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentCardComponent } from './comments/comment-card/comment-card.component';
+import { UploadVideoComponent } from './videos/upload-video/upload-video.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { CommentCardComponent } from './comments/comment-card/comment-card.compo
     EditVideoModalComponent,
     VideoPlayerDashboardComponent,
     CommentsComponent,
-    CommentCardComponent
+    CommentCardComponent,
+    UploadVideoComponent
   ],
   imports: [
     BrowserModule,
