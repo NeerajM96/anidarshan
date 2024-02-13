@@ -43,15 +43,15 @@
         <div class="video-info">
             <div class="video-info-header">
                 <div class="video-info-subheader-1">
-                    <div class="video-title text-lg">{{data.title}}</div>
+                    <div class="video-title text-lg">{{title}}</div>
                     <div class="video-view-data quarternary-text">
-                        <span>{{data.viewCount}} Views</span> . <span>{{data.uploadedAt | timeAgo}}</span>
+                        <span>{{viewCount}} Views</span> . <span>{{createdAt | timeAgo}}</span>
                     </div>
                 </div>
                 <div class="video-details-subheader-2">
                     <div class="likes-dislikes">
-                        <button class="like-btn"><i class="fa fa-thumbs-up"></i> {{data.likes}}</button>
-                        <button class="dislike-btn"><i class="fa fa-thumbs-down"></i> {{data.dislikes}}</button>
+                        <button class="like-btn"><i class="fa fa-thumbs-up"></i> {{likes}}</button>
+                        <button class="dislike-btn"><i class="fa fa-thumbs-down"></i> {{dislikes}}</button>
                     </div>
                     <div class="save-to-playlist">
                         <i class="material-icons">create_new_folder</i> <span class="btn-text">Save</span>
@@ -60,21 +60,21 @@
             </div>
             <div class="channel-info">
                 <div class="channel-icon">
-                    <img [src]="data.channelIcon" alt="">
+                    <img [src]="channelIcon" alt="">
                     <span>
-                        <p class="quarternary-text">{{data.channelName}}</p>
-                        <p class="secondary-text">{{data.subscribers}} Subscribers</p>
+                        <p class="quarternary-text">{{channelName}}</p>
+                        <p class="secondary-text">{{subscribers}} Subscribers</p>
                     </span>
                 </div>
 
                 <div class="subscribe-btn-container">
                     <button class="subscribe btn-secondary" (click)="onSubscribe()">
-                        <i class="fa fa-user-plus"></i> Subscribe<span *ngIf="data.isSubscribed">d</span>
+                        <i class="fa fa-user-plus"></i> Subscribe<span *ngIf="isSubscribed">d</span>
                     </button>
                 </div>
             </div>
             <div class="description">
-                <p>{{data.description}}</p>
+                <p>{{description}}</p>
             </div>
         </div>
         <div class="comments">

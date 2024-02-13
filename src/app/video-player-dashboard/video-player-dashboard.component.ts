@@ -18,22 +18,19 @@ export class VideoPlayerDashboardComponent implements OnInit{
   url = "https://res.cloudinary.com/dqvwtmjbb/video/upload/sp_auto/v1707761100/ppqfhcn5znvvjof29xp6.m3u8"
   hlsBitrates: BitrateOptions[] = [];
   videoId = ''
-
+  title:string = ''
+  channelName:string = ''
+  channelIcon:string = ''
+  description:string = ''
+  createdAt:string = ''
+  viewCount:number = 0
+  likes:number = 3050
+  dislikes:number = 20
+  subscribers:number = 0
+  isSubscribed:boolean = false
   
   urlForm = new FormControl()
-  data = {
-    title:'Advanced React Patterns',
-    channelName:'React Patterns',
-    channelIcon:"https://images.pexels.com/photos/18264716/pexels-photo-18264716/free-photo-of-man-people-laptop-internet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    viewCount:30164,
-    uploadedAt:'2024-01-19T10:19:02.743+00:00',
-    likes:3050,
-    dislikes:20,
-    subscribers:75432,
-    isSubscribed:false,
-    description:`🚀 Dive into the world of React with our latest tutorial series: "Advanced React Patterns"! 🛠️ Whether you're a seasoned developer or 
-    just starting out, this series is designed to elevate your React skills to the next level.`
-  }
+ 
 
     constructor(private dataStore:DataStoreService, private route:ActivatedRoute, private videoService:VideoService) {
       dataStore.showSideBar.next(false)
@@ -42,7 +39,18 @@ export class VideoPlayerDashboardComponent implements OnInit{
     ngOnInit(): void {
       this.videoId = this.route.snapshot.paramMap.get("videoId") || ''
       this.videoService.getVideoById(this.videoId).subscribe(res => {
-        console.log("Video details: ", res)
+        console.log("res: ",res)
+        this.channelIcon = res.data.avatar
+        this.title = res.data.title
+        this.description = res.data.description
+        this.channelName = res.data.fullName
+        this.viewCount = res.data.views
+        this.createdAt = res.data.createdAt
+        this.subscribers = res.data.subscribersCount
+        // // add aggregation in BE to get below
+        // this.likes = res.data.likes
+        // this.dislikes = res.data.dislikes
+        // this.isSubscribed = res.data.isSubscribed
       })
     }
 
