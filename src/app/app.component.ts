@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   constructor(private route: ActivatedRoute, public dataStore: DataStoreService,private authService:AuthService){
     
   }
+  // TODO: temporarily increased "maximumWarning": "1.5mb" from 500kb and "maximumError": "2.5mb" from 1mb, implement lazy loady 
+  // and reset these
   ngOnInit(): void {
     this.authService.refreshAccessToken().subscribe(res=>{
       localStorage.setItem("accessToken",res.data.accessToken)
