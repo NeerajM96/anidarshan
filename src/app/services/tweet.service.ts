@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 interface UserTweet {
   data: [
@@ -27,7 +28,8 @@ interface CreateTweetAPI {
   providedIn: 'root',
 })
 export class TweetService {
-  private apiUrl = 'http://localhost:8000/api/v1/tweets/';
+  // private apiUrl = 'http://localhost:8000/api/v1/tweets/';
+  private apiUrl = environment.url +"tweets/"
   constructor(private http: HttpClient) {}
 
   getUserTweets(username: string) {

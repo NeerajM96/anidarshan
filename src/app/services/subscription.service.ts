@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 interface Subscribers{
   data:[
@@ -32,7 +33,7 @@ interface Subscribed{
   providedIn: 'root'
 })
 export class SubscriptionService {
-  private apiUrl = 'http://localhost:8000/api/v1/subscriptions/';
+  private apiUrl = environment.url +"subscriptions/"
   constructor(private http:HttpClient) { }
 
   toggleChannelSubscription(channelId:string){

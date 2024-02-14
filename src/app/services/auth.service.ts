@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { User } from '../models/user/user.model';
+import { environment } from 'src/environments/environment';
 
 interface ApiResponse {
   statusCode: number;
@@ -58,7 +59,8 @@ interface RefreshToken{
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000/api/v1/users/';
+  // private apiUrl = 'http://localhost:8000/api/v1/users/';
+  private apiUrl = environment.url+"users/"
   private accessToken = '';
   private username = '';
   private userId ='';
