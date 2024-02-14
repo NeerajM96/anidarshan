@@ -18,7 +18,8 @@ export class VideoPlayerDashboardComponent implements OnInit{
   api: VgApiService = new VgApiService;
   paused:boolean = false;
   
-  url = "https://res.cloudinary.com/dqvwtmjbb/video/upload/sp_auto/v1707761100/ppqfhcn5znvvjof29xp6.m3u8"
+  videoUrl = ""
+  thumbnail = ""
   hlsBitrates: BitrateOptions[] = [];
   videoId = ''
   title:string = ''
@@ -56,6 +57,8 @@ export class VideoPlayerDashboardComponent implements OnInit{
         this.viewCount = res.data.views
         this.createdAt = res.data.createdAt
         this.subscribers = res.data.subscribersCount
+        this.videoUrl = res.data.videoFile
+        this.thumbnail = res.data.thumbnail
         // // add aggregation in BE to get below
         // this.likes = res.data.likes
         // this.dislikes = res.data.dislikes

@@ -25,10 +25,10 @@
                     <vg-fullscreen></vg-fullscreen>
                 </vg-controls>
                 <video 
-                [vgHls]="url"
+                [vgHls]="videoUrl"
                 (onGetBitrates)="handleGetBitrates($event)"
                 [vgMedia]="$any(media)" 
-                #media [poster]="'https://res.cloudinary.com/dqvwtmjbb/image/upload/v1707762476/ddeljtipijpmzhk5pfmu.jpg'" 
+                #media [poster]="thumbnail" 
                 preload="auto" crossorigin>
                 </video>
             </vg-player>
