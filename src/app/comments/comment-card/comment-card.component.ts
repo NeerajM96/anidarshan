@@ -20,6 +20,6 @@ export class CommentCardComponent implements OnInit{
     this.channelIcon = this.data.channelIcon
     this.username = this.data.username
     this.fullName = this.data.fullName
-    this.updatedAt = this.data.uploadedAt
+    this.updatedAt = this.data.updatedAt
   }
 }

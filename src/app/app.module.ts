@@ -41,6 +41,8 @@ import { CommentCardComponent } from './comments/comment-card/comment-card.compo
 import { UploadVideoComponent } from './videos/upload-video/upload-video.component';
 import { VgStreamingModule } from '@videogular/ngx-videogular/streaming';
 import { CollapsableSideBarComponent } from './collapsable-side-bar/collapsable-side-bar.component';
+import { SecondsToDurationPipe } from './pipes/seconds-to-duration.pipe';
+import { CollapsableCommentsComponent } from './collapsable-comments/collapsable-comments.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { CollapsableSideBarComponent } from './collapsable-side-bar/collapsable-
     CommentsComponent,
     CommentCardComponent,
     UploadVideoComponent,
-    CollapsableSideBarComponent
+    CollapsableSideBarComponent,
+    SecondsToDurationPipe,
+    CollapsableCommentsComponent
   ],
   imports: [
     BrowserModule,

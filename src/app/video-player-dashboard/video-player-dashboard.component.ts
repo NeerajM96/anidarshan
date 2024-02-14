@@ -7,6 +7,7 @@ import { VideoService } from '../services/video.service';
 import { DeviceDetectorService } from '../services/device-detector.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CommentsComponent } from '../comments/comments.component';
+import { CollapsableCommentsComponent } from '../collapsable-comments/collapsable-comments.component';
 
 @Component({
   selector: 'app-video-player-dashboard',
@@ -163,6 +164,6 @@ export class VideoPlayerDashboardComponent implements OnInit{
     dialogConfig.position = {
       top:'60%'
     }
-    this.dialog.open(CommentsComponent, dialogConfig)
+    this.dialog.open(CollapsableCommentsComponent, dialogConfig)
   }
 }

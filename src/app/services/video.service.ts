@@ -2,6 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
+interface AllVideos{
+  data:{
+    thumbnail: string,
+    duration: number,
+    avatar: string,
+    title: string,
+    viewCount:number,
+    uploadedAt:string,
+    fullName:string,
+    description:string,
+    _id:string
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +36,10 @@ export class VideoService {
     videoData.append("title",title)
     videoData.append("description",description)
     return this.http.post<any>(enpoint, videoData)
+  }
+
+  getAllVideos(){
+    const endpoint = this.apiUrl
+    return this.http.get<AllVideos>(endpoint)
   }
 }
