@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.authService.refreshAccessToken().subscribe(res=>{
+      localStorage.setItem("accessToken",res.data.accessToken)
+    })
+
     this.authService.isAuthenticated()
 
     this.dataStore.showHeader.subscribe(res=>{

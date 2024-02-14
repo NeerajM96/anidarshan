@@ -43,10 +43,11 @@
             <span class="label">
               <label for="avatar">Avatar: </label>
             </span>
-            <span>
-              <!-- <input id="avatar" type="file" formControlName="avatar" placeholder="Enter your avatar"/> -->
-              <button class="img-upload-btn" type="button" (click)="avatarPicker.click()">Avatar</button>
-              <input type="file" #avatarPicker (change)="onImagePicked($event,'avatar')">
+            <span class="flex-row-align">
+              <span>
+                <button class="img-upload-btn" type="button" (click)="avatarPicker.click()">Avatar</button>
+                <input type="file" #avatarPicker (change)="onImagePicked($event,'avatar')">
+              </span>
               <div class="image-preview" *ngIf="avatarPreview !=='' && avatarPreview">
                 <img [src]="avatarPreview" alt="">
               </div>
@@ -56,10 +57,11 @@
             <span class="label">
               <label for="coverImage">Cover Image: </label>
             </span>
-            <span>
-              <!-- <input id="coverImage" type="file" formControlName="coverImage" placeholder="Enter your cover image"/> -->
-              <button class="img-upload-btn" type="button" (click)="coverImagePicker.click()">Cover Image</button>
-              <input type="file" #coverImagePicker (change)="onImagePicked($event, 'coverImage')">
+            <span class="flex-row-align">
+              <span>
+                <button class="img-upload-btn" type="button" (click)="coverImagePicker.click()">Cover Image</button>
+                <input type="file" #coverImagePicker (change)="onImagePicked($event, 'coverImage')">
+              </span>
               <div class="image-preview" *ngIf="coverImagePreview !=='' && coverImagePreview">
                 <img [src]="coverImagePreview" alt="">
               </div>

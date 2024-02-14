@@ -155,7 +155,7 @@ export class AuthService {
   }
 
   logout() {
-    const endPoint = this.apiUrl + '/logout';
+    const endPoint = this.apiUrl + 'logout';
     const user = {
       _id: '659e6b8c04170c08ee0b874f',
     };
@@ -172,8 +172,7 @@ export class AuthService {
   }
 
   refreshAccessToken(){
-    const endPoint = this.apiUrl + "/refresh-token"
-    console.log("trying to refresh")
+    const endPoint = this.apiUrl + "refresh-token"
     return this.http.post<RefreshToken>(endPoint,{}).pipe(tap(
       res =>{
         localStorage.setItem("accessToken",res.data.accessToken)
