@@ -13,10 +13,10 @@ export class ErrorParserService {
 
     // Extract text content until the first <br> tag
     const preElement = doc.querySelector('pre');
-    const errorMessage = preElement ? this.extractTextUntilBreak(preElement.innerHTML) : 'Unknown error';
+    const errorMessage = preElement ? this.extractTextUntilBreak(preElement.innerHTML) : 'Error while trying to fetch from server!';
 
     // Remove "Error:" prefix
-    return errorMessage.replace(/^Error:\s*/, '') || 'Unknown error';
+    return errorMessage.replace(/^Error:\s*/, '') || 'Error while trying to fetch from server!';
   }
 
   private extractTextUntilBreak(html: string): string {
