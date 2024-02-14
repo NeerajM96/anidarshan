@@ -72,4 +72,8 @@ export class SignupComponent {
     }
     
   }
+  routeToHome(){
+    this.router.navigate(['/home'])
+    this.dataStore.showHeader.next(true);
+  }
 }

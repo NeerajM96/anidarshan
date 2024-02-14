@@ -1,16 +1,15 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { DeviceDetectorService } from '../services/device-detector.service';
 
 @Component({
-  selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  selector: 'app-collapsable-comments',
+  templateUrl: './collapsable-comments.component.html',
+  styleUrls: ['./collapsable-comments.component.scss']
 })
-export class CommentsComponent implements OnInit{
-
+export class CollapsableCommentsComponent {
   addComment = new FormControl('', Validators.required)
+  deviceIsMobile:boolean = false
   commentsData = [
     {
       content:"This series is exactly what I've been looking for! Excited to dive into these advanced React patterns. Thanks for putting this together!",
@@ -99,7 +98,7 @@ export class CommentsComponent implements OnInit{
 
   ]
 
-  constructor(){
+  constructor(private dialogRef:DialogRef<CollapsableCommentsComponent>){
     
   }
   ngOnInit(): void {
@@ -124,4 +123,8 @@ export class CommentsComponent implements OnInit{
   //   this.commentsData.push(comment);
   //   this.addComment.reset();
   // }
+
+  onClose(){
+    this.dialogRef.close()
+  }
 }

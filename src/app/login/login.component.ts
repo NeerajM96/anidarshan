@@ -94,4 +94,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate([routingURL]);
     });
   }
+
+  routeToHome(){
+    this.router.navigate(['/home'])
+    this.dataStore.showHeader.next(true);
+  }
 }

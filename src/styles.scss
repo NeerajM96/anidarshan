@@ -261,6 +261,14 @@ input[type="file"]{
       }
 }
 
+@media only screen and (max-width: 768px){
+    .snackbar-message-box{
+        .mdc-snackbar__surface {
+            margin-top: 14%;
+          }
+    }
+}
+
 .snackbar-error-message-box{
     .mdc-snackbar__surface {
         background-color: rgb(185, 28, 28) !important;

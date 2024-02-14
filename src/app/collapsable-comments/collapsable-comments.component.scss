@@ -1,9 +1,9 @@
 .comments-container{
     display: flex;
     flex-direction: column;
-    max-height: 500px;
+    background-color: #121212;
     overflow-y: auto;
-    padding-right: 16px;
+    padding: 10px;
     .add-comment-section{
         margin: 16px 0;
         border: 1px solid #e5e7eb;
@@ -32,22 +32,11 @@
             right: 10px;
         }
     }
+    .comments-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+
+    }
 }
-
-// @media only screen and (max-width: 768px){
-//     .comments-container{
-//         max-height: 100%;
-//         padding-right: 0;
-//         // overflow-y: hidden;
-//         background-color: #121212;
-//         padding: 16px;
-//     }
-//     .comments-header{
-//         display: flex;
-//         align-items: center;
-//         justify-content: space-between;
-//         color: #fff;
-
-//     }
-    
-// }
