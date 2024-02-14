@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     private authService: AuthService, 
     private deviceDetectorService:DeviceDetectorService,
+    // private dialogRef: MatDialogRef<SidebarComponent> 
     ){
   }
   ngOnInit(): void {
