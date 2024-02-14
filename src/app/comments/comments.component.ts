@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { DialogRef } from '@angular/cdk/dialog';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { DeviceDetectorService } from '../services/device-detector.service';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent {
+export class CommentsComponent implements OnInit{
 
   addComment = new FormControl('', Validators.required)
+  deviceIsMobile:boolean = false
   commentsData = [
     {
       content:"This series is exactly what I've been looking for! Excited to dive into these advanced React patterns. Thanks for putting this together!",
@@ -97,8 +100,11 @@ export class CommentsComponent {
 
   ]
 
-  constructor(){
+  constructor(private dialogRef:DialogRef<CommentsComponent>, private deviceDetectorService:DeviceDetectorService){
     
+  }
+  ngOnInit(): void {
+    this.deviceIsMobile = this.deviceDetectorService.isMobile()
   }
 
   onAddComment(){
@@ -119,4 +125,8 @@ export class CommentsComponent {
   //   this.commentsData.push(comment);
   //   this.addComment.reset();
   // }
+
+  onClose(){
+    this.dialogRef.close()
+  }
 }

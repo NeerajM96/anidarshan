@@ -19,8 +19,8 @@
                     <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
             
                     <vg-track-selector></vg-track-selector>
-                    <vg-mute></vg-mute>
-                    <vg-volume></vg-volume>
+                    <vg-mute *ngIf="!deviceIsMobile"></vg-mute>
+                    <vg-volume *ngIf="!deviceIsMobile"></vg-volume>
                     <vg-quality-selector [bitrates]="hlsBitrates"></vg-quality-selector>
                     <vg-fullscreen></vg-fullscreen>
                 </vg-controls>
@@ -30,13 +30,6 @@
                 [vgMedia]="$any(media)" 
                 #media [poster]="'https://res.cloudinary.com/dqvwtmjbb/image/upload/v1707762476/ddeljtipijpmzhk5pfmu.jpg'" 
                 preload="auto" crossorigin>
-                    <!-- <source [src]="url" type="video/mp4"> -->
-                <!-- <source [src]="url" type="video/ogg">
-                <source [src]="url" type="video/webm">
-                <source [src]="url" type="video/m3u8"> -->
-        
-                <!-- <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default>
-                <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt" srclang="es"> -->
                 </video>
             </vg-player>
         </div>
@@ -77,8 +70,11 @@
                 <p>{{description}}</p>
             </div>
         </div>
-        <div class="comments">
+        <div class="comments" *ngIf="!deviceIsMobile">
             <app-comments></app-comments>
+        </div>
+        <div class="mobile-comments" *ngIf="deviceIsMobile" (click)="openComments()">
+            Show Comments
         </div>
     </div>
 

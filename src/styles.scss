@@ -241,6 +241,12 @@ input[type="file"]{
     height: auto;
 }
 
+.mobile-device-comments-modal{
+    height: 100%;
+    // position: absolute;
+    top:40%
+}
+
 // mat-snack bar
 .snackbar-message-box{
     .mdc-snackbar__surface {
