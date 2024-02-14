@@ -6,6 +6,14 @@
     justify-content: space-between;
     color: #fff;
     padding: 20px 20px;
-    height: calc(100vh - 68px);
+    height: 100vh;
     // height: 100%; 
+}
+.side-nav-close-btn-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4d3ff;
+    font-weight: 600;
+    // color: ;
 }

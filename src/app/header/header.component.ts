@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { DataStoreService } from '../services/data-store.service';
 import { DeviceDetectorService } from '../services/device-detector.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { CollapsableSideBarComponent } from '../collapsable-side-bar/collapsable-side-bar.component';
 
 @Component({
   selector: 'app-header',
@@ -54,6 +54,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openSideBar(){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.panelClass = "collapsable-side-bar-model"
-    this.dialog.open(SidebarComponent, dialogConfig)
+    this.dialog.open(CollapsableSideBarComponent, dialogConfig)
   }
 }

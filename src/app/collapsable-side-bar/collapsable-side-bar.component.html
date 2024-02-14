@@ -2,37 +2,40 @@
 
 <div class="sidebar">
     <div class="sibebar-nav-links">
-        <div class="home side-nav-btn-row" routerLinkActive="active" routerLink="/home">
+        <div class="home side-nav-btn-row side-nav-close-btn-row" routerLinkActive="active" (click)="onClose()">
+            <div class="nav-button">Close</div>
+        </div>
+        <div class="home side-nav-btn-row" routerLinkActive="active" routerLink="/home" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-home side-bar-icons"></i></div>
             <div class="nav-button">Home</div>
         </div>
-        <div class="liked-videos side-nav-btn-row" routerLinkActive="active">
+        <div class="liked-videos side-nav-btn-row" routerLinkActive="active" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-thumbs-up side-bar-icons"></i></div>
             <div class="nav-button">Liked Videos</div>
         </div>
-        <div class="history side-nav-btn-row" routerLinkActive="active">
+        <div class="history side-nav-btn-row" routerLinkActive="active" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-history side-bar-icons"></i></div>
             <div class="nav-button">Watch History</div>
         </div>
-        <div class="my-content side-nav-btn-row" routerLinkActive="active" [routerLink]="['c',username]">
+        <div class="my-content side-nav-btn-row" routerLinkActive="active" [routerLink]="['c',username]" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-video-camera side-bar-icons"></i></div>
             <div class="nav-button">My Content</div>
         </div>
-        <div class="collections side-nav-btn-row" routerLinkActive="active">
+        <div class="collections side-nav-btn-row" routerLinkActive="active" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-folder-o side-bar-icons"></i></div>
             <div class="nav-button">Collections</div>
         </div>
-        <div class="subscribers side-nav-btn-row" routerLinkActive="active" [routerLink]="['my-subscribers']">
+        <div class="subscribers side-nav-btn-row" routerLinkActive="active" [routerLink]="['my-subscribers']" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-users side-bar-icons"></i></div>
             <div class="nav-button">Subscribers</div>
         </div>
     </div>
     <div class="sidebar-utils">
-        <div class="support side-nav-btn-row">
+        <div class="support side-nav-btn-row" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-question-circle-o side-bar-icons"></i></div>
             <div class="nav-button">Support</div>
         </div>
-        <div class="settings side-nav-btn-row">
+        <div class="settings side-nav-btn-row" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-gear side-bar-icons"></i></div>
             <div class="nav-button">Settings</div>
         </div>
