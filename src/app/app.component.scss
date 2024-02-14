@@ -16,3 +16,9 @@
 .home-page-no-sidebar{
     height: calc(100vh - 68px);
 }
+
+@media only screen and (max-width: 768px){
+    .home-page-sidebar{
+        display: block;
+    }
+}

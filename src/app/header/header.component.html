@@ -2,7 +2,7 @@
     <div class="logo-section">
       <div class="logo" (click)="routeToHome()"> A<span>D</span> </div>
     </div>
-    <div class="search-bar">
+    <div class="search-bar" *ngIf="!deviceIsMobile">
       <i class="fa fa-search icon"></i>
       <input type="text" placeholder="Search">
     </div>
@@ -18,5 +18,8 @@
             <button mat-menu-item (click)="logoutUser()">Logout</button>
           </mat-menu>
         </div>
+    </div>
+    <div *ngIf="deviceIsMobile" class="sidebar-btn" (click)="openSideBar()">
+      <i class="fa fa-navicon"></i>
     </div>
   </div>

@@ -4,6 +4,9 @@ import { DataStoreService } from '../services/data-store.service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from '../services/video.service';
+import { DeviceDetectorService } from '../services/device-detector.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-video-player-dashboard',
@@ -15,7 +18,8 @@ export class VideoPlayerDashboardComponent implements OnInit{
   api: VgApiService = new VgApiService;
   paused:boolean = false;
   
-  url = "https://res.cloudinary.com/dqvwtmjbb/video/upload/sp_auto/v1707761100/ppqfhcn5znvvjof29xp6.m3u8"
+  videoUrl = ""
+  thumbnail = ""
   hlsBitrates: BitrateOptions[] = [];
   videoId = ''
   title:string = ''
@@ -28,15 +32,21 @@ export class VideoPlayerDashboardComponent implements OnInit{
   dislikes:number = 20
   subscribers:number = 0
   isSubscribed:boolean = false
+  deviceIsMobile:boolean = false
   
   urlForm = new FormControl()
  
 
-    constructor(private dataStore:DataStoreService, private route:ActivatedRoute, private videoService:VideoService) {
+    constructor(private dataStore:DataStoreService, private route:ActivatedRoute, 
+      private videoService:VideoService,
+      private deviceDetectorService:DeviceDetectorService,
+      private dialog:MatDialog
+      ) {
       dataStore.showSideBar.next(false)
     }
     
     ngOnInit(): void {
+      this.deviceIsMobile = this.deviceDetectorService.isMobile()
       this.videoId = this.route.snapshot.paramMap.get("videoId") || ''
       this.videoService.getVideoById(this.videoId).subscribe(res => {
         console.log("res: ",res)
@@ -47,6 +57,8 @@ export class VideoPlayerDashboardComponent implements OnInit{
         this.viewCount = res.data.views
         this.createdAt = res.data.createdAt
         this.subscribers = res.data.subscribersCount
+        this.videoUrl = res.data.videoFile
+        this.thumbnail = res.data.thumbnail
         // // add aggregation in BE to get below
         // this.likes = res.data.likes
         // this.dislikes = res.data.dislikes
@@ -139,5 +151,18 @@ export class VideoPlayerDashboardComponent implements OnInit{
 
   onSubscribe(){
     
+  }
+  // editVideoDialog(){
+  //   const dialogConfig = new MatDialogConfig()
+  //   dialogConfig.panelClass = 'edit-video-dialog-modal'
+  //   this.dialog.open(CommentsComponent, dialogConfig)
+  // }
+  openComments(){
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.panelClass = 'mobile-device-comments-modal'
+    dialogConfig.position = {
+      top:'60%'
+    }
+    this.dialog.open(CommentsComponent, dialogConfig)
   }
 }

@@ -1,5 +1,9 @@
 <div class="comments-container">
-    <p>{{commentsData.length}} Comments</p>
+    <div class="comments-header">
+        <p class="comments-count">{{commentsData.length}} Comments</p>
+        <span *ngIf="deviceIsMobile" class="btn-secondary" (click)="onClose()">Close</span>
+    </div>
+    
     <div class="add-comment-section">
         <input type="text" placeholder="Add a comment" [formControl]="addComment">
         <button class="btn-secondary add-btn" (click)="onAddComment()">Add</button>

@@ -40,6 +40,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentCardComponent } from './comments/comment-card/comment-card.component';
 import { UploadVideoComponent } from './videos/upload-video/upload-video.component';
 import { VgStreamingModule } from '@videogular/ngx-videogular/streaming';
+import { CollapsableSideBarComponent } from './collapsable-side-bar/collapsable-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { VgStreamingModule } from '@videogular/ngx-videogular/streaming';
     VideoPlayerDashboardComponent,
     CommentsComponent,
     CommentCardComponent,
-    UploadVideoComponent
+    UploadVideoComponent,
+    CollapsableSideBarComponent
   ],
   imports: [
     BrowserModule,

@@ -190,3 +190,48 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px){
+    .video-card-container-list-v2{
+        width: 100%;
+    }
+    // .video-card-container-list{
+    //     display: flex;
+    //     flex-direction: column;
+    //     width: 100%;
+    //     height: auto;
+    //     .thumbnail{
+    //         position: relative;
+    //         img{
+    //             background: no-repeat center center/cover;
+    //             object-fit: contain;
+    //             // width: 100%;
+    //             width: max-content;
+    //         }
+    //         .video-duration-text{
+    //             position: absolute;
+    //             color: #fff;
+    //             background-color: #121212;
+    //             padding: 2px 6px;
+    //             bottom: 10px;
+    //             right:20px;
+    //             border-radius: 4px;
+    //         }
+    //     }
+    // }
+    .video-card-container-list{
+        // max-width: 390px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        .thumbnail{
+            position: relative;
+            img{
+                background: no-repeat center center/cover;
+                object-fit: contain;
+                width: 90vw;
+                height: auto;
+            }
+        }
+    }
+}
