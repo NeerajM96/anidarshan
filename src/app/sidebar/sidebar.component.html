@@ -2,6 +2,9 @@
 
 <div class="sidebar">
     <div class="sibebar-nav-links">
+        <div *ngIf="deviceIsMobile" class="home side-nav-btn-row side-nav-close-btn-row" routerLinkActive="active" (click)="onClose()">
+            <div class="nav-button">Close</div>
+        </div>
         <div class="home side-nav-btn-row" routerLinkActive="active" routerLink="/home">
             <div class="nav-icon"><i class="fa fa-home side-bar-icons"></i></div>
             <div class="nav-button">Home</div>

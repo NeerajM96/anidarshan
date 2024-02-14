@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { DeviceDetectorService } from '../services/device-detector.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,9 +11,19 @@ import { AuthService } from '../services/auth.service';
 export class SidebarComponent implements OnInit {
 
   username:string = ''
-  constructor(private authService: AuthService){
+  deviceIsMobile:boolean = false
+  constructor(
+    private authService: AuthService, 
+    private deviceDetectorService:DeviceDetectorService,
+    ){
   }
   ngOnInit(): void {
+    this.deviceIsMobile = this.deviceDetectorService.isMobile()
     this.username = this.authService.getAuthData().username || ''
+  }
+
+  onClose(){
+    // // getting some error due to injecting Matdialogref/dialogref
+    // this.dialogRef.close()
   }
 }
