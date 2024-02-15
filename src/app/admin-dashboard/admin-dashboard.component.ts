@@ -48,16 +48,31 @@ export class AdminDashboardComponent implements OnInit {
     this.data[id].isPublished = !this.data[id].isPublished
   }
 
-  deleteVideoDialog(){
+  deleteVideoDialog(id:number){
     const dialogConfig = new MatDialogConfig()
+    const videoId = this.data[id]._id
     dialogConfig.panelClass = 'delete-video-dialog-modal'
-    this.dialog.open(DeleteVideoModalComponent, dialogConfig)
+    dialogConfig.data = {
+      videoId:videoId
+    }
+    const deleteDialogRef = this.dialog.open(DeleteVideoModalComponent, dialogConfig)
+    deleteDialogRef.afterClosed().subscribe(()=>{
+      this.data.splice(id,1)
+    })
   }
 
-  editVideoDialog(){
+  editVideoDialog(id:number){
     const dialogConfig = new MatDialogConfig()
     dialogConfig.panelClass = 'edit-video-dialog-modal'
-    this.dialog.open(EditVideoModalComponent, dialogConfig)
+    dialogConfig.data = {
+      videoData:this.data[id]
+    }
+    const editDialogRef = this.dialog.open(EditVideoModalComponent, dialogConfig)
+    editDialogRef.afterClosed().subscribe(title => {
+      if(title){
+        this.data[id].title = title
+      }
+    })
   }
 
 }

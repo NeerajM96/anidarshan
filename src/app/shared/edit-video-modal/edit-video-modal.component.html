@@ -19,9 +19,10 @@
                     </span>
                     <span class="flex-row-align">
                       <span>
-                        <button class="img-upload-btn" type="button" (click)="thumbnailPicker.click()">Browse</button>
+                        <button class="img-upload-btn" type="button">Browse</button> Editing thumbnail will be in future releases
+                        <!-- <button class="img-upload-btn" type="button" (click)="thumbnailPicker.click()">Browse</button> -->
                       </span>
-                      <input type="file" #thumbnailPicker (change)="onImagePicked($event,'avatar')">
+                      <!-- <input type="file" #thumbnailPicker (change)="onImagePicked($event,'thumbnail')"> -->
                     </span>
                   </div>
                   <div class="input-field">
@@ -42,5 +43,10 @@
                     </span>
                   </div>
                 </form>
+                <div class="footer-btn-container">
+                  <div ><button class="cancel-btn" (click)="close()">Cancel</button></div>
+                  <div><button class="finish-btn" (click)="updateVideo()">Update</button></div>
+              </div>
     </div>
+    
 </div>

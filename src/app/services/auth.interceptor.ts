@@ -28,7 +28,6 @@ export class AuthInterceptor implements HttpInterceptor {
         },
         withCredentials: true,
       });
-
       // Don't modify the FormData here, as it may not behave well with spreading
       return next.handle(authRequest).pipe(
         catchError(err => {
@@ -46,7 +45,7 @@ export class AuthInterceptor implements HttpInterceptor {
         },
         withCredentials: true,
       });
-
+      
       return next.handle(authRequest).pipe(
         catchError(err => {
           this.showMessage(err.error)

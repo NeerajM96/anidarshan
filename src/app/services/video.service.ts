@@ -29,13 +29,13 @@ export class VideoService {
   }
 
   uploadAVideo(videoFile:File, thumbnail:File,title:string, description:string){
-    const enpoint = this.apiUrl
+    const endPoint = this.apiUrl
     const videoData = new FormData()
     videoData.append("videoFile", videoFile, videoFile.name)
     videoData.append("thumbnail", thumbnail, thumbnail.name)
     videoData.append("title",title)
     videoData.append("description",description)
-    return this.http.post<any>(enpoint, videoData)
+    return this.http.post<any>(endPoint, videoData)
   }
 
   getAllVideos(username:string){
@@ -44,5 +44,15 @@ export class VideoService {
       params: new HttpParams().set('username',username)
     };
     return this.http.get<AllVideos>(endpoint,options)
+  }
+
+  deleteVideoById(id:string){
+    const endPoint = this.apiUrl+id
+    return this.http.delete(endPoint)
+  }
+
+  editVideo(id:string,title:string, description:string){
+    const endPoint = this.apiUrl+id
+    return this.http.post<any>(endPoint, {title,description})
   }
 }

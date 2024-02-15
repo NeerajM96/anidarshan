@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
       this.dataStore.showSideBar.next(true);
       const routingURL = `/c/${data.username}`;
       this.router.navigate([routingURL]);
+      this.isLoading = false;
     });
   }
 
