@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -38,8 +38,11 @@ export class VideoService {
     return this.http.post<any>(enpoint, videoData)
   }
 
-  getAllVideos(){
+  getAllVideos(username:string){
     const endpoint = this.apiUrl
-    return this.http.get<AllVideos>(endpoint)
+    const options = {
+      params: new HttpParams().set('username',username)
+    };
+    return this.http.get<AllVideos>(endpoint,options)
   }
 }

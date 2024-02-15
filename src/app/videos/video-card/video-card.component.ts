@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-card',
@@ -30,7 +30,9 @@ export class VideoCardComponent implements OnInit{
   @Input()
   videoDetailsPage:boolean = false
 
-  constructor(private router:Router){
+  @Output() reloadWatchCompEvent = new EventEmitter<string>()
+
+  constructor(private router:Router, private route:ActivatedRoute){
 
   }
 
@@ -50,6 +52,10 @@ export class VideoCardComponent implements OnInit{
   }
 
   watchVideo(){
+    const currentComponent = this.route.snapshot.component?.name
+    if(currentComponent === 'VideoPlayerDashboardComponent'){
+      this.reloadWatchCompEvent.emit(this.videoId)
+    }
     this.router.navigate(['watch',this.videoId])
   }
 

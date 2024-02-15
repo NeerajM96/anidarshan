@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { VideoService } from '../services/video.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-videos',
@@ -9,11 +10,14 @@ import { VideoService } from '../services/video.service';
 export class VideosComponent implements OnInit{
 
   videoData:any;
-  constructor(private videoService:VideoService){
+  username:string = ''
+  @Output() reloadWatchCompEvent = new EventEmitter<string>()
+  constructor(private videoService:VideoService, private route:ActivatedRoute){
 
   }
   ngOnInit(): void {
-    this.videoService.getAllVideos().subscribe(res => {
+    this.username =  this.route.snapshot.paramMap.get('username') || ''
+    this.videoService.getAllVideos(this.username).subscribe(res => {
       this.videoData = res.data
     })
   }
@@ -27,77 +31,7 @@ export class VideosComponent implements OnInit{
       toMyChannelPage = false
 
 
-    //   @Input()
-    //   videoData = [
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //     {
-    //       thumbnail: 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    // duration: '20:45',
-    // channelIcon: 'http://res.cloudinary.com/dqvwtmjbb/image/upload/v1705576838/o2sid2hwlsqq7mjmajob.jpg',
-    // title: 'JavaScript Fundamentals: Variables and Data Types',
-    // viewCount:'10.3k',
-    // uploadedAt:'40 minutes ago',
-    // channelName:'Chai Aur Code',
-    // description: 'Learn the basics of JavaScript, including variables, data types, and how to use them in your programs.',
-    //     },
-    //   ]
+    reloadWatchComp(videoId:string){
+      this.reloadWatchCompEvent.emit(videoId)
+    }
 }

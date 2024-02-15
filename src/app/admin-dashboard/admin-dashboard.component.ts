@@ -5,6 +5,9 @@ import { DeleteVideoModalComponent } from '../shared/delete-video-modal/delete-v
 import { UploadVideoModalComponent } from '../shared/upload-video-modal/upload-video-modal.component';
 import { VideoUploadStatusModalComponent } from '../shared/video-upload-status-modal/video-upload-status-modal.component';
 import { EditVideoModalComponent } from '../shared/edit-video-modal/edit-video-modal.component';
+import { VideoService } from '../services/video.service';
+import { AuthService } from '../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,143 +22,19 @@ export class AdminDashboardComponent implements OnInit {
   totalViews:number = 221234
   totalSubscribers:number = 4053
   totalLikes:number = 63021
+  username:string = ''
 
-  constructor(private dataStore:DataStoreService, private dialog:MatDialog){
+  constructor(private dataStore:DataStoreService, private dialog:MatDialog, private videoService:VideoService,
+    private authService:AuthService,
+    ){
     this.dataStore.showSideBar.next(false)
   }
 
   ngOnInit(): void {
-    
-    this.data = [
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/3532545/pexels-photo-3532545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'JavaScript Fundamentals: Variables and Data Types',
-        likes:921,
-        dislikes:49,
-        dateUploaded:'9/22/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'React Hooks Explained: useState and useEffect',
-        likes:2520,
-        dislikes:349,
-        dateUploaded:'9/21/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532549/pexels-photo-3532549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Mastering Async Await in JavaScript',
-        likes:943,
-        dislikes:244,
-        dateUploaded:'9/18/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/2519812/pexels-photo-2519812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Getting Started with Express.js',
-        likes:906,
-        dislikes:14,
-        dateUploaded:'9/16/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/3532545/pexels-photo-3532545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'JavaScript Fundamentals: Variables and Data Types',
-        likes:921,
-        dislikes:49,
-        dateUploaded:'9/22/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'React Hooks Explained: useState and useEffect',
-        likes:2520,
-        dislikes:349,
-        dateUploaded:'9/21/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532549/pexels-photo-3532549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Mastering Async Await in JavaScript',
-        likes:943,
-        dislikes:244,
-        dateUploaded:'9/18/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/2519812/pexels-photo-2519812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Getting Started with Express.js',
-        likes:906,
-        dislikes:14,
-        dateUploaded:'9/16/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/3532545/pexels-photo-3532545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'JavaScript Fundamentals: Variables and Data Types',
-        likes:921,
-        dislikes:49,
-        dateUploaded:'9/22/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'React Hooks Explained: useState and useEffect',
-        likes:2520,
-        dislikes:349,
-        dateUploaded:'9/21/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532549/pexels-photo-3532549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Mastering Async Await in JavaScript',
-        likes:943,
-        dislikes:244,
-        dateUploaded:'9/18/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/2519812/pexels-photo-2519812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Getting Started with Express.js',
-        likes:906,
-        dislikes:14,
-        dateUploaded:'9/16/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/3532545/pexels-photo-3532545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'JavaScript Fundamentals: Variables and Data Types',
-        likes:921,
-        dislikes:49,
-        dateUploaded:'9/22/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'React Hooks Explained: useState and useEffect',
-        likes:2520,
-        dislikes:349,
-        dateUploaded:'9/21/2023'
-      },
-      {
-        published:false,
-        thumbnail:'https://images.pexels.com/photos/3532549/pexels-photo-3532549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Mastering Async Await in JavaScript',
-        likes:943,
-        dislikes:244,
-        dateUploaded:'9/18/2023'
-      },
-      {
-        published:true,
-        thumbnail:'https://images.pexels.com/photos/2519812/pexels-photo-2519812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        title:'Getting Started with Express.js',
-        likes:906,
-        dislikes:14,
-        dateUploaded:'9/16/2023'
-      },
-    ]
+    this.username = this.authService.getUsername()
+    this.videoService.getAllVideos(this.username).subscribe(res =>{
+      this.data = res.data
+    })
   }
 
   togglePublish(event:Event, id:number){
@@ -166,7 +45,7 @@ export class AdminDashboardComponent implements OnInit {
     resulting in a toggle that doesn't match the underlying data.
     */
     event.preventDefault();
-    this.data[id].published = !this.data[id].published
+    this.data[id].isPublished = !this.data[id].isPublished
   }
 
   deleteVideoDialog(){

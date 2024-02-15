@@ -40,17 +40,17 @@
 </div>
 
 <!-- video dashboard page -->
-<div class="video-card-container-list-v2" *ngIf="videoDetailsPage">
+<div class="video-card-container-list-v2" *ngIf="videoDetailsPage" (click)="watchVideo()">
     <div class="thumbnail">
         <img [src]="thumbnail" alt="">
-        <span class="video-duration-text">{{duration}}</span>
+        <span class="video-duration-text">{{duration | secondsToDuration}}</span>
     </div>
     <div class="video-info">
         <div class="video-details">
             <div class="video-title">{{title}}</div>
             <div class="channel-name" *ngIf="videoDetailsPage">{{channelName}}</div>
             <div class="video-view-data">
-                <span>{{viewCount}} Views</span> . <span>{{uploadedAt}}</span>
+                <span>{{viewCount}} Views</span> . <span>{{uploadedAt | timeAgo}}</span>
             </div>
         </div>
         <div class="channel-icon" *ngIf="!onMyChannelPage && !videoDetailsPage">

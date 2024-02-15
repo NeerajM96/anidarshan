@@ -44,6 +44,7 @@ export class MyChannelComponent implements OnInit, OnDestroy {
         currentUser.username || this.route.snapshot.paramMap.get('username');
     });
     this.accessToken = this.authService.getAccessToken();
+    this.isAuthenticated = this.authService.isAuthenticated()
     this.getChannelDetails();
   }
 

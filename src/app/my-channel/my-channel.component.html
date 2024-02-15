@@ -38,11 +38,11 @@
         </div>
     </div>
     <div class="channel-items">
-        <app-videos [toMyChannelPage]="true" *ngIf="currTab === 'videos'"></app-videos>
+        <app-videos [toMyChannelPage]="true" [viewMode]="'list'" *ngIf="currTab === 'videos'"></app-videos>
         <app-tweets [channelIcon]="avatar" [myChannel]="myChannel" [channelName]="fullName"  *ngIf="currTab === 'tweets'"></app-tweets>
         <app-subscribers [flag]="'subscribed'" [userId]="userId" *ngIf="currTab === 'subscribers'"></app-subscribers>
     </div>
-    <div class="upload-video-btn" *ngIf="currTab === 'videos'">
+    <div class="upload-video-btn" *ngIf="currTab === 'videos' && isAuthenticated">
         <app-upload-video></app-upload-video>
     </div>
 </div>
