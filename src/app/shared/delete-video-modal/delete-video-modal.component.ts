@@ -1,5 +1,7 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { VideoService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-delete-video-modal',
@@ -7,8 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-video-modal.component.scss']
 })
 export class DeleteVideoModalComponent {
-  constructor(private dialogRef:DialogRef<DeleteVideoModalComponent>){
+  constructor(private dialogRef:DialogRef<DeleteVideoModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private videoService:VideoService
+    ){
 
+  }
+
+  deleteVideo(){
+    this.videoService.deleteVideoById(this.data.videoId).subscribe(()=>{
+      this.close()
+    })
   }
 
   close(){

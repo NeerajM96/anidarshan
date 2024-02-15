@@ -82,7 +82,7 @@ export class AuthService {
   }
 
   getUsername(){
-    return this.username
+    return this.getAuthData().username || this.username
   }
 
   getUserAvatar(){

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:"", redirectTo:"/home", pathMatch: "full"},
   {path:"home", component:HomeComponent},
   {path:"login", component:LoginComponent},
-  {path:"c/:username", component:MyChannelComponent, canActivate:[AuthGuard]},
+  {path:"c/:username", component:MyChannelComponent},
   {path:"signup", component:SignupComponent},
   {path:"my-subscribers", component:MySubscribersComponent, canActivate:[AuthGuard]},
   {path:"admin/dashboard", component:AdminDashboardComponent, canActivate:[AuthGuard]},
@@ -21,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

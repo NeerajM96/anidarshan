@@ -1,7 +1,7 @@
 <div class="dashboard-container secondary-fonts">
     <div class="dashboard-header">
         <div class="heading">
-            <p class="text-xl fw-3">Welcome Back, {{channelName}}</p>
+            <p class="text-xl fw-3">Welcome Back, {{username}}</p>
             <p class="secondary-text">Seamless Video Management, Elevated Results.</p>
         </div>
         <div class="upload-video-btn">
@@ -47,11 +47,11 @@
                     <td class="slider-container">
                         <span>
                             <label class="switch">
-                                <input type="checkbox" [checked]="row.published">
+                                <input type="checkbox" [checked]="row.isPublished">
                                 <span class="slider round" (click)="togglePublish($event,id)"></span>
                             </label>
                         </span>
-                        <span [ngClass]="row.published ? 'published': 'unpublished'">{{ row.published ? 'Published' : 'Unpublished' }}</span>
+                        <span [ngClass]="row.isPublished ? 'published': 'unpublished'">{{ row.isPublished ? 'Published' : 'Unpublished' }}</span>
                     </td>
                     <td>
                         <div class="video-container">
@@ -62,14 +62,14 @@
                         </div>
                     </td>
                     <td class="rating-container">
-                        <span class="likes">{{row.likes}} likes </span>
-                        <span class="dislikes">{{row.dislikes}} dislikes</span>
+                        <span class="likes">500 likes </span>
+                        <span class="dislikes">28 dislikes</span>
                     </td>
-                    <td>{{row.dateUploaded}}</td>
+                    <td>{{row.createdAt |  timeAgo}}</td>
                     <td>
                         <div class="edit-section">
-                            <i class="fa fa-pencil" (click)="editVideoDialog()"></i>
-                            <i class="fa fa-trash" (click)="deleteVideoDialog()"></i>
+                            <i class="fa fa-pencil" (click)="editVideoDialog(id)"></i>
+                            <i class="fa fa-trash" (click)="deleteVideoDialog(id)"></i>
                         </div>
                     </td>
                 </tr>

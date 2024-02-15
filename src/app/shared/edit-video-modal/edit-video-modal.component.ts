@@ -1,24 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { VideoService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-edit-video-modal',
   templateUrl: './edit-video-modal.component.html',
   styleUrls: ['./edit-video-modal.component.scss']
 })
-export class EditVideoModalComponent {
-  thumbnailPreview:string = 'https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+export class EditVideoModalComponent implements OnInit{
+  thumbnailPreview:string = ''
+  videoId:string = ''
+
   editForm = this.fb.group({
     thumbnail:[null],
-    title:['',Validators.required],
-    description:['',Validators.required],
+    title:[''],
+    description:[''],
   })
 
   oldThumbnail:boolean = true;
 
-  constructor(private fb:FormBuilder, private dialogRef:MatDialogRef<EditVideoModalComponent>){
+  constructor(private fb:FormBuilder, private dialogRef:MatDialogRef<EditVideoModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private videoService:VideoService,
+    ){
 
+  }
+  ngOnInit(): void {
+    this.thumbnailPreview = this.data.videoData.thumbnail
+    this.videoId = this.data.videoData._id
+    // this.editForm.patchValue({
+    //   // thumbnail:this.data.videoData.thumbnail,
+    //   title:this.data.videoData.title,
+    //   description:this.data.videoData.description
+    // })
+    this.setFormValue(this.data.videoData.title,this.data.videoData.description)
   }
 
   close(){
@@ -34,12 +50,26 @@ export class EditVideoModalComponent {
       
       this.editForm.patchValue({[fileName]:file})
       // informs form that I have changed the value for below field, so validate it again
-      this.editForm.get(fileName)?.updateValueAndValidity()
       const reader = new FileReader()
       reader.onload = () =>{
         this.thumbnailPreview = reader.result as string;
       }
       reader.readAsDataURL(file)
     }
+  }
+
+  updateVideo(){
+    const title = this.editForm.value.title
+    const description = this.editForm.value.description
+    this.videoService.editVideo(this.videoId,title!,description!).subscribe(()=>{
+      this.dialogRef.close(title)
+    })
+  }
+
+  setFormValue(title:string, description:string){
+    this.editForm.patchValue({
+      title:title,
+      description:description
+    })
   }
 }

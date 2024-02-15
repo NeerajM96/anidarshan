@@ -31,6 +31,13 @@
                 #media [poster]="thumbnail" 
                 preload="auto" crossorigin>
                 </video>
+                <source [src]="secureUrl" type="video/mp4">
+                <!-- <source [src]="url" type="video/ogg">
+                <source [src]="url" type="video/webm">
+                <source [src]="url" type="video/m3u8"> -->
+
+                <!-- <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default>
+                <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt" srclang="es"> -->
             </vg-player>
         </div>
         <div class="video-info">
@@ -81,7 +88,7 @@
     <!-- I won't be implementing suggested videos for some time, so comment this part and video player take all width -->
     <div class="suggested-videos">
         <!-- as of now for suggested videos, return all the videos of the user whose video is being played -->
-        <app-videos [viewMode]="'list'" [videoDetailsPage]="true"></app-videos>
+        <app-videos (reloadWatchCompEvent)="reload($event)" [viewMode]="'list'" [videoDetailsPage]="true"></app-videos>
     </div>
 </div>
 

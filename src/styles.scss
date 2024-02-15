@@ -261,14 +261,6 @@ input[type="file"]{
       }
 }
 
-@media only screen and (max-width: 768px){
-    .snackbar-message-box{
-        .mdc-snackbar__surface {
-            margin-top: 14%;
-          }
-    }
-}
-
 .snackbar-error-message-box{
     .mdc-snackbar__surface {
         background-color: rgb(185, 28, 28) !important;
@@ -277,6 +269,22 @@ input[type="file"]{
     .mdc-snackbar__label {
         color: #fff !important;
       }
+}
+
+@media only screen and (max-width: 768px){
+    .snackbar-message-box,.snackbar-error-message-box{
+        .mdc-snackbar__surface {
+            margin-top: 14%;
+          }
+    }
+    .upload-dialog-modal,.upload-status-dialog-modal,.delete-video-dialog-modal,.edit-video-dialog-modal{
+        width: 100%;
+        height: auto;
+    }
+    .delete-video-dialog-modal{
+        width: 100%;
+        height: auto;
+    }
 }
 
 // headings

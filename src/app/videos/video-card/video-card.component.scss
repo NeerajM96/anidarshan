@@ -1,12 +1,13 @@
+*{
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 /* List View */
 .video-card-container-list{
-    // max-width: 390px;
     display: flex;
     margin-bottom: 14px;
     height: 176px;
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #fff;
     cursor: pointer;
-    // border: 1px solid #e5e7eb;
     .thumbnail{
         position: relative;
         img{
@@ -35,33 +36,6 @@
             display: flex;
             align-items: center;
             margin: 8px 0;
-        }
-        .channel-icon img{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: no-repeat center center/cover;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-        .video-details{
-            .video-title{
-                color: #fff;
-                font-weight: 600;
-            }
-            .video-view-data{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-                margin-top: 10px;
-            }
-
-            .channel-name{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-            }
-        }
-        .description{
-            font-size: 0.875rem;
         }
     }
 }
@@ -95,30 +69,6 @@
     .video-info{
         display: flex;
         padding: 6px;
-        .channel-icon img{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: no-repeat center center/cover;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-        .video-details{
-            .video-title{
-                color: #fff;
-                font-weight: 600;
-            }
-            .video-view-data{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-                margin-top: 10px;
-            }
-
-            .channel-name{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-            }
-        }
     }
 }
 
@@ -129,7 +79,6 @@
     margin-bottom: 14px;
     // height: 176px;
     width: 450px;
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     cursor: pointer;
     border: 1px solid #e5e7eb;
     .thumbnail{
@@ -161,69 +110,48 @@
             align-items: center;
             margin: 8px 0;
         }
-        .channel-icon img{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: no-repeat center center/cover;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-        .video-details{
-            .video-title{
-                color: #fff;
-                font-weight: 600;
-            }
-            .video-view-data{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-                margin-top: 10px;
-            }
-
-            .channel-name{
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 0.875rem;
-            }
-        }
-        .description{
-            font-size: 0.875rem;
-        }
     }
+}
+
+.channel-icon img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: no-repeat center center/cover;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.video-details{
+    .video-title{
+        color: #fff;
+        font-weight: 600;
+    }
+    .video-view-data{
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.875rem;
+        margin-top: 10px;
+    }
+
+    .channel-name{
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.875rem;
+    }
+}
+.description{
+    font-size: 0.875rem;
 }
 
 @media only screen and (max-width: 768px){
     .video-card-container-list-v2{
         width: 100%;
     }
-    // .video-card-container-list{
-    //     display: flex;
-    //     flex-direction: column;
-    //     width: 100%;
-    //     height: auto;
-    //     .thumbnail{
-    //         position: relative;
-    //         img{
-    //             background: no-repeat center center/cover;
-    //             object-fit: contain;
-    //             // width: 100%;
-    //             width: max-content;
-    //         }
-    //         .video-duration-text{
-    //             position: absolute;
-    //             color: #fff;
-    //             background-color: #121212;
-    //             padding: 2px 6px;
-    //             bottom: 10px;
-    //             right:20px;
-    //             border-radius: 4px;
-    //         }
-    //     }
-    // }
     .video-card-container-list{
-        // max-width: 390px;
         display: flex;
         flex-direction: column;
         height: auto;
+        color: #fff;
+        padding-left: 10px;
+        margin-bottom: 10px;
         .thumbnail{
             position: relative;
             img{

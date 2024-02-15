@@ -7,9 +7,9 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./video-upload-status-modal.component.scss']
 })
 export class VideoUploadStatusModalComponent implements OnInit{
-  fileName='Dashboard prototype'
-  fileType='recording.mp4'
-  fileSize='16 MB'
+  // fileName='Dashboard prototype'
+  // fileType='recording.mp4'
+  // fileSize='16 MB'
   statusMessage = 'Uploaded Successfully'
   title='Uploaded Video'
   uploadFinished:boolean = false
@@ -18,9 +18,9 @@ export class VideoUploadStatusModalComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    setTimeout(()=>{
-      this.uploadFinished = true
-    },4000)
+    // setTimeout(()=>{
+    //   this.uploadFinished = true
+    // },4000)
   }
 
 

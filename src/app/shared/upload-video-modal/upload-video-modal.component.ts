@@ -46,6 +46,7 @@ export class UploadVideoModalComponent implements OnInit{
     const title = this.uploadForm.value.title
     const description = this.uploadForm.value.description
     this.videoService.uploadAVideo(video!,thumbnail!,title!,description!).subscribe(res =>{
+      this.dialog.closeAll()
     })
     this.uploadVideoStatusDialog()
   }

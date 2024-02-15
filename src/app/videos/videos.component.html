@@ -1,5 +1,5 @@
 <div [ngClass]="viewMode === 'list' ? 'videos-container-list' : 'videos-container-grid'">
   <span *ngFor="let data of videoData">
-    <app-video-card [data]="data" [videoDetailsPage]="videoDetailsPage" [viewMode]="viewMode" [onMyChannelPage]="toMyChannelPage"></app-video-card>
+    <app-video-card (reloadWatchCompEvent)="reloadWatchComp($event)" [data]="data" [videoDetailsPage]="videoDetailsPage" [viewMode]="viewMode" [onMyChannelPage]="toMyChannelPage"></app-video-card>
   </span>
 </div>
