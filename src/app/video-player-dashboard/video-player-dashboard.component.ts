@@ -50,7 +50,6 @@ export class VideoPlayerDashboardComponent implements OnInit{
       this.deviceIsMobile = this.deviceDetectorService.isMobile()
       this.videoId = this.route.snapshot.paramMap.get("videoId") || ''
       this.videoService.getVideoById(this.videoId).subscribe(res => {
-        console.log("res: ",res)
         this.channelIcon = res.data.avatar
         this.title = res.data.title
         this.description = res.data.description

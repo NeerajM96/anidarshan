@@ -14,7 +14,6 @@ export class VideosComponent implements OnInit{
   }
   ngOnInit(): void {
     this.videoService.getAllVideos().subscribe(res => {
-      console.log("data from fetching all videos: ", res)
       this.videoData = res.data
     })
   }
