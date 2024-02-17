@@ -45,7 +45,6 @@ export class VideoPlayerDashboardComponent implements OnInit{
       private dialog:MatDialog,
       private router:Router
       ) {
-      dataStore.showSideBar.next(false)
     }
     
     ngOnInit(): void {
