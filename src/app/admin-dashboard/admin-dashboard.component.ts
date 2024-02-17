@@ -27,7 +27,6 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private dataStore:DataStoreService, private dialog:MatDialog, private videoService:VideoService,
     private authService:AuthService,
     ){
-    this.dataStore.showSideBar.next(false)
   }
 
   ngOnInit(): void {
@@ -56,8 +55,10 @@ export class AdminDashboardComponent implements OnInit {
       videoId:videoId
     }
     const deleteDialogRef = this.dialog.open(DeleteVideoModalComponent, dialogConfig)
-    deleteDialogRef.afterClosed().subscribe(()=>{
-      this.data.splice(id,1)
+    deleteDialogRef.afterClosed().subscribe((flag)=>{
+      if(flag){
+        this.data.splice(id,1)
+      }
     })
   }
 

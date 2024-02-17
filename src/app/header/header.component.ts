@@ -48,7 +48,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   routeToHome(){
     this.router.navigate(['/home'])
-    this.dataStore.showSideBar.next(true)
   }
 
   openSideBar(){

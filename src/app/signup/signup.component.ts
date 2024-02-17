@@ -24,16 +24,6 @@ export class SignupComponent {
   })
 
   constructor(private authService: AuthService, private fb: FormBuilder, private dataStore:DataStoreService, private router:Router){
-    dataStore.showHeader.next(false);
-    dataStore.showSideBar.next(false);
-  }
-
-  // to fix bug when we pressed back button in browser and header and side-bar are still hidden
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event:Event) {
-    console.log('Back button pressed');
-    this.dataStore.showHeader.next(true);
-    this.dataStore.showSideBar.next(true);
   }
 
   onSignup(){
@@ -74,6 +64,5 @@ export class SignupComponent {
   }
   routeToHome(){
     this.router.navigate(['/home'])
-    this.dataStore.showHeader.next(true);
   }
 }

@@ -1,7 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import {
-  FormGroup,
-  FormControl,
   FormBuilder,
   Validators,
 } from '@angular/forms';
@@ -9,7 +7,6 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { DataStoreService } from '../services/data-store.service';
 import { User } from '../models/user/user.model';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -31,24 +28,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private dataStore: DataStoreService
   ) {
-    dataStore.showHeader.next(false);
-    dataStore.showSideBar.next(false);
   }
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
       const username = this.authService.getAuthData().username
       this.router.navigate(['/c',username]);
-      this.dataStore.showHeader.next(true);
-      this.dataStore.showSideBar.next(true);
     }
-  }
-
-  // to fix bug when we pressed back button in browser and header and side-bar are still hidden
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event: Event) {
-    console.log('Back button pressed');
-    this.dataStore.showHeader.next(true);
-    this.dataStore.showSideBar.next(true);
   }
 
   handelAuthentication(
@@ -88,8 +73,6 @@ export class LoginComponent implements OnInit {
         data.watchHistory,
         res.data.accessToken
       );
-      this.dataStore.showHeader.next(true);
-      this.dataStore.showSideBar.next(true);
       const routingURL = `/c/${data.username}`;
       this.router.navigate([routingURL]);
       this.isLoading = false;
@@ -98,6 +81,5 @@ export class LoginComponent implements OnInit {
 
   routeToHome(){
     this.router.navigate(['/home'])
-    this.dataStore.showHeader.next(true);
   }
 }
