@@ -7,7 +7,7 @@ export class TimeAgoPipe implements PipeTransform {
 
   transform(value: any): unknown {
     
-    if (!value) { return 'a long time ago'; }
+    if (!value) { return 'a moment ago'; }
     let time = (Date.now() - Date.parse(value)) / 1000;
     if (time < 10) {
       return 'just now';

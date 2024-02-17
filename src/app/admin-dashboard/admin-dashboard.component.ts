@@ -55,8 +55,10 @@ export class AdminDashboardComponent implements OnInit {
       videoId:videoId
     }
     const deleteDialogRef = this.dialog.open(DeleteVideoModalComponent, dialogConfig)
-    deleteDialogRef.afterClosed().subscribe(()=>{
-      this.data.splice(id,1)
+    deleteDialogRef.afterClosed().subscribe((flag)=>{
+      if(flag){
+        this.data.splice(id,1)
+      }
     })
   }
 
