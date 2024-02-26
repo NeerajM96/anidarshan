@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
 
   username:string = ''
   deviceIsMobile:boolean = false
+  isAuthenticated:boolean = false
   constructor(
     private authService: AuthService, 
     private deviceDetectorService:DeviceDetectorService,
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.deviceIsMobile = this.deviceDetectorService.isMobile()
     this.username = this.authService.getAuthData().username || ''
+    this.isAuthenticated = this.authService.isAuthenticated()
   }
 
   onClose(){
