@@ -10,13 +10,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CollapsableSideBarComponent {
   username:string = ''
   deviceIsMobile:boolean = false
+  isAuthenticated:boolean = false
   constructor(
     private authService: AuthService, 
-    private dialogRef: MatDialogRef<CollapsableSideBarComponent> 
+    private dialogRef: MatDialogRef<CollapsableSideBarComponent>
     ){
   }
   ngOnInit(): void {
     this.username = this.authService.getAuthData().username || ''
+    this.isAuthenticated = this.authService.isAuthenticated()
   }
 
   onClose(){

@@ -17,7 +17,7 @@
             <div class="nav-icon"><i class="fa fa-history side-bar-icons"></i></div>
             <div class="nav-button">Watch History</div>
         </div>
-        <div class="my-content side-nav-btn-row" routerLinkActive="active" [routerLink]="['c',username]" (click)="onClose()">
+        <div class="my-content side-nav-btn-row" routerLinkActive="active" [routerLink]="isAuthenticated ? ['c',username] : null" (click)="onClose()">
             <div class="nav-icon"><i class="fa fa-video-camera side-bar-icons"></i></div>
             <div class="nav-button">My Content</div>
         </div>
