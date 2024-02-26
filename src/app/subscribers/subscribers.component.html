@@ -1,7 +1,7 @@
 <div class="subscriber-container">
     <div class="search-bar" *ngIf="!hideSearchBar">
         <i class="fa fa-search icon"></i>
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" [formControl]="userToSearch">
     </div>
     <div *ngFor="let subscriber of data">
         <app-subscriber-card [subscriberData]="subscriber"></app-subscriber-card>

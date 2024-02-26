@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SubscriptionService } from '../services/subscription.service';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-subscribers',
@@ -19,6 +21,8 @@ export class SubscribersComponent implements OnInit {
   // subscribers:any
   // subscribed:any
   data:any
+  userToSearch = new FormControl('');
+
 
   constructor(private subscriptionService:SubscriptionService){
 
@@ -26,6 +30,10 @@ export class SubscribersComponent implements OnInit {
 
   ngOnInit(): void {
     this.setData()
+    this.userToSearch.valueChanges.pipe(debounceTime(400))
+    .subscribe(res => {
+      this.setSubscribedChannels(res!)
+    })
   }
 
   setData(){
@@ -44,8 +52,8 @@ export class SubscribersComponent implements OnInit {
     })
   }
 
-  setSubscribedChannels(){
-    this.subscriptionService.getSubscribedChannels(this.userId).subscribe(res => {
+  setSubscribedChannels(fullName?:string){
+    this.subscriptionService.getSubscribedChannels(this.userId,fullName).subscribe(res => {
       this.data = res.data
     })
   }

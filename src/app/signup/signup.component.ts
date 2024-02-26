@@ -34,8 +34,10 @@ export class SignupComponent {
     
     const avatar = this.signupForm.value.avatar
     const coverImage = this.signupForm.value.coverImage
+    this.isLoading = true
     this.authService.register(fullName!,username!,email!,password!,avatar!,coverImage!).subscribe(res => {
       this.router.navigate(['/login'])
+      this.isLoading = false;
     })
   }
 

@@ -45,9 +45,12 @@ export class SubscriptionService {
     const endPoint = this.apiUrl + `c/${channelId}`
     return this.http.get<Subscribers>(endPoint,{})
   }
-
-  getSubscribedChannels(subscriberId:string){
-    const endPoint = this.apiUrl + `u/${subscriberId}`
+  
+  getSubscribedChannels(subscriberId:string, fullName?:string){
+    let endPoint = this.apiUrl + `u/${subscriberId}`
+    if(fullName){
+      endPoint += `?fullName=${fullName}`
+    }
     return this.http.get<Subscribed>(endPoint,{})
   }
 }

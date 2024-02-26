@@ -35,9 +35,9 @@ export class AppComponent implements OnInit, OnDestroy {
   // and reset these
   ngOnInit(): void {
     this.deviceIsMobile = this.deviceDetectorService.isMobile()
-    this.authService.refreshAccessToken().subscribe(res=>{
-      localStorage.setItem("accessToken",res.data.accessToken)
-    })
+    // this.authService.refreshAccessToken().subscribe(res=>{
+    //   localStorage.setItem("accessToken",res.data.accessToken)
+    // })
 
     this.authService.isAuthenticated()
   }
