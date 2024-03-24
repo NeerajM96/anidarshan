@@ -43,6 +43,7 @@ import { VgStreamingModule } from '@videogular/ngx-videogular/streaming';
 import { CollapsableSideBarComponent } from './collapsable-side-bar/collapsable-side-bar.component';
 import { SecondsToDurationPipe } from './pipes/seconds-to-duration.pipe';
 import { CollapsableCommentsComponent } from './collapsable-comments/collapsable-comments.component';
+import { ServerStatusComponent } from './server-status/server-status.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CollapsableCommentsComponent } from './collapsable-comments/collapsable
     UploadVideoComponent,
     CollapsableSideBarComponent,
     SecondsToDurationPipe,
-    CollapsableCommentsComponent
+    CollapsableCommentsComponent,
+    ServerStatusComponent
   ],
   imports: [
     BrowserModule,
