@@ -7,4 +7,11 @@
         <div class="" *ngIf="showSidebar && !deviceIsMobile"><app-sidebar></app-sidebar></div>
         <div class="router-outlet-section"><router-outlet></router-outlet></div>
     </div>
+    <div class="server-connection-overlay" *ngIf="!connectedToServer">
+        <div class="overlay-comp">
+            <!-- optimize or write this animation by yourself -->
+            <app-server-status></app-server-status>
+        </div>
+    </div>
+
 </div>

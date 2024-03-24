@@ -4,6 +4,7 @@ import { DataStoreService } from './services/data-store.service';
 import { AuthService } from './services/auth.service';
 import { DeviceDetectorService } from './services/device-detector.service';
 import { Subscription } from 'rxjs';
+import { HealthCheckService } from './services/health-check.service';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,15 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn = false
   showSidebar = true
   showHeader = true
-  deviceIsMobile:boolean = false
+  deviceIsMobile:boolean = false;
+  connectedToServer:boolean = false;
   private routerEventsSubscription:Subscription;
 
   constructor(private router: Router, 
     public dataStore: DataStoreService,
     private authService:AuthService,
-    private deviceDetectorService:DeviceDetectorService
+    private deviceDetectorService:DeviceDetectorService,
+    private healthcheckService:HealthCheckService
     ){
     this.routerEventsSubscription = router.events.subscribe(event => {
       if(event instanceof NavigationEnd){
@@ -38,8 +41,10 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.authService.refreshAccessToken().subscribe(res=>{
     //   localStorage.setItem("accessToken",res.data.accessToken)
     // })
+    this.authService.isAuthenticated();
 
-    this.authService.isAuthenticated()
+    // calling health check API to check if backend server is up.
+    this.checkServerConnection()
   }
 
   shouldShowSidebar(): boolean {
@@ -53,6 +58,12 @@ export class AppComponent implements OnInit, OnDestroy {
   shouldShowHeader(): boolean {
     const currentRoute = this.router.routerState.snapshot.url;
     return !['/login', '/register'].includes(currentRoute);
+  }
+
+  checkServerConnection(){
+    this.healthcheckService.healthCheck().subscribe(res =>{
+      this.connectedToServer = true
+    })
   }
 
   ngOnDestroy(): void {

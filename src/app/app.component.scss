@@ -17,6 +17,22 @@
     height: calc(100vh - 68px);
 }
 
+// overlay for server connection
+.server-connection-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 9999;
+    .overlay-comp{
+        position: relative;
+        top: 28%;
+        margin: 0 20px; 
+    } 
+}
+
 @media only screen and (max-width: 768px){
     .home-page-sidebar{
         display: block;
