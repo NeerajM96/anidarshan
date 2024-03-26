@@ -52,6 +52,7 @@ interface RefreshToken{
   statusCode:number;
   data:{
     accessToken:string;
+    refreshToken:string;
   }
 }
 
@@ -151,7 +152,7 @@ export class AuthService {
         );
         this.userState.next(user);
         this.authStatusListner.next(true);
-        this.saveAuthToLocalStorage(res.data.user.username,res.data.user._id,res.data.accessToken,res.data.user.avatar)
+        this.saveAuthToLocalStorage(res.data.user.username,res.data.user._id,res.data.accessToken,res.data.refreshToken,res.data.user.avatar)
       })
     );
   }
@@ -175,9 +176,11 @@ export class AuthService {
 
   refreshAccessToken(){
     const endPoint = this.apiUrl + "refresh-token"
-    return this.http.post<RefreshToken>(endPoint,{}).pipe(tap(
+    const refreshToken = localStorage.getItem("refreshToken");
+    return this.http.post<RefreshToken>(endPoint,{refreshToken}).pipe(tap(
       res =>{
         localStorage.setItem("accessToken",res.data.accessToken)
+        localStorage.setItem("refreshToken",res.data.refreshToken)
       }
     ))
   }
@@ -191,8 +194,9 @@ export class AuthService {
     return this.http.get<ChannelInfo>(endPoint)
   }
 
-  saveAuthToLocalStorage(username:string, userId:string,accessToken:string,avatar:string){
+  saveAuthToLocalStorage(username:string, userId:string,accessToken:string,refreshToken:string,avatar:string){
     localStorage.setItem("accessToken",accessToken)
+    localStorage.setItem("refreshToken",refreshToken)
     localStorage.setItem("username",username)
     localStorage.setItem("userId",userId)
     localStorage.setItem("avatar",avatar)
