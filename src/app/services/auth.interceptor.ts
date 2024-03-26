@@ -5,7 +5,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, config, throwError } from 'rxjs';
+import { Observable, catchError, config, switchMap, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import { ErrorParserService } from './error-parser.service';
@@ -18,7 +18,8 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const accessToken = this.authService.getAccessToken();
+    // const accessToken = this.authService.getAccessToken();
+    const accessToken = localStorage.getItem("accessToken");
     // Check if the request body is FormData
     if (req.body instanceof FormData) {
       // Clone the request and append the access token to FormData
@@ -45,9 +46,11 @@ export class AuthInterceptor implements HttpInterceptor {
         },
         withCredentials: true,
       });
-      
       return next.handle(authRequest).pipe(
         catchError(err => {
+          if (err.status === 401 && !req.url.includes('refresh-token')) {
+            return this.handle401Error(req, next);
+          }
           this.showMessage(err.error)
           return new Observable<HttpEvent<any>>();
         })
@@ -63,5 +66,25 @@ export class AuthInterceptor implements HttpInterceptor {
     config.horizontalPosition = 'end'
     config.verticalPosition  = 'top'
     this._snackbar.open(message,'',config)
+  }
+
+  private handle401Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Refresh the access token
+    return this.authService.refreshAccessToken().pipe(
+        switchMap((res: any) => {
+        // Retry the original request with the new access token
+        request = request.clone({
+          setHeaders: {
+            Authorization: `Bearer ${res.data.accessToken}`
+          }
+        });
+        return next.handle(request);
+      }),
+      catchError((error) => {
+        // If refresh token failed or expired, redirect to login page
+        this.authService.logout();
+        return throwError(() => error);
+      })
+    );
   }
 }
